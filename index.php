@@ -109,13 +109,9 @@ $managements = $companyManagementController->getAll();
 
                     <!-- CTA Buttons -->
                     <div class="flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="200">
-                        <a href="#services"
+                        <a href="/cosultant"
                             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#505CEE] to-[#8A2BE2] text-white font-bold text-base shadow-lg hover:shadow-xl transition-all">
                             Explore Solutions <span class="text-xl">→</span>
-                        </a>
-                        <a href="#demo"
-                            class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border-2 border-[#505CEE] text-[#505CEE] font-bold text-base bg-transparent hover:bg-[#505CEE] hover:text-white transition-all shadow-sm">
-                            <span class="text-lg">▷</span> Watch Demo
                         </a>
                     </div>
                 </div>
@@ -183,7 +179,7 @@ $managements = $companyManagementController->getAll();
 
                     <!-- Learn More Button -->
                     <div class="pt-4" data-aos="fade-up">
-                        <a href="#contact"
+                        <a href="/vision-mission"
                             class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#505CEE] to-[#8A2BE2] text-white font-bold text-base shadow-lg hover:shadow-xl transition-all">
                             Learn More About Us
                         </a>
@@ -329,7 +325,7 @@ $managements = $companyManagementController->getAll();
 
             <!-- Learn More Button -->
             <div class="flex justify-center mt-8" data-aos="fade-up">
-                <a href="/services.php"
+                <a href="/services"
                     class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-[#505CEE] to-[#8A2BE2] text-white font-semibold text-base shadow-md hover:shadow-lg transition-all hover:scale-105">
                     Learn More <span class="text-lg">→</span>
                 </a>

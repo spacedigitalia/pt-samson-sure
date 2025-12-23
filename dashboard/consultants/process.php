@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 require_once __DIR__ . '/../../config/db.php';
-require_once __DIR__ . '/../../controllers/Consultantscontroller.php';
+require_once __DIR__ . '/../../controllers/ConsultantsController.php';
 
 $action = $_POST['action'] ?? '';
 $userId = $_SESSION['user']['id'] ?? null;

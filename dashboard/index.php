@@ -47,7 +47,7 @@ if ($result) {
 }
 
 $breadcrumbs = [
-    ['label' => 'Home', 'href' => 'dashboard.php'],
+    ['label' => 'Dashboard', 'href' => '/dashboard'],
     ['label' => 'Overview'],
 ];
 ?>

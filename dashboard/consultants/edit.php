@@ -9,7 +9,7 @@ if (!isset($_SESSION['user']) || ($_SESSION['user']['role'] ?? '') !== 'admin') 
 }
 
 require_once __DIR__ . '/../../config/db.php';
-require_once __DIR__ . '/../../controllers/Consultantscontroller.php';
+require_once __DIR__ . '/../../controllers/ConsultantsController.php';
 require_once __DIR__ . '/../header.php';
 
 $active = 'consultants';
