@@ -59,6 +59,13 @@ function navClass(string $key, string $active): string
             About
         </a>
 
+        <a href="/dashboard/data-perseroan" class="<?php echo navClass('data-perseroan', $active); ?>">
+            <span
+                class="inline-flex h-8 w-8 items-center justify-center rounded-lg <?php echo $active === 'data-perseroan' ? 'bg-white/15' : 'bg-slate-100 text-slate-700'; ?>"><i
+                    class='bx bx-file'></i> </span>
+            Data Perseroan
+        </a>
+
         <a href="/dashboard/company-managements" class="<?php echo navClass('company-managements', $active); ?>">
             <span
                 class="inline-flex h-8 w-8 items-center justify-center rounded-lg <?php echo $active === 'company-managements' ? 'bg-white/15' : 'bg-slate-100 text-slate-700'; ?>"><i

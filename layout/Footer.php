@@ -38,16 +38,16 @@
                     <h4 class="text-base font-semibold mb-4">Services</h4>
                     <ul class="space-y-3 text-sm text-gray-300">
                         <?php if (isset($services) && is_array($services) && !empty($services)): ?>
-                        <?php foreach (array_slice($services, 0, 5) as $service): ?>
-                        <li><a href="/services"
-                                class="hover:text-white transition-colors"><?php echo htmlspecialchars($service['title']); ?></a>
-                        </li>
-                        <?php endforeach; ?>
+                            <?php foreach (array_slice($services, 0, 5) as $service): ?>
+                                <li><a href="/services"
+                                        class="hover:text-white transition-colors"><?php echo htmlspecialchars($service['title']); ?></a>
+                                </li>
+                            <?php endforeach; ?>
                         <?php else: ?>
-                        <li><a href="/services" class="hover:text-white transition-colors">Business Consulting</a></li>
-                        <li><a href="/services" class="hover:text-white transition-colors">Management Services</a></li>
-                        <li><a href="/services" class="hover:text-white transition-colors">Professional Solutions</a>
-                        </li>
+                            <li><a href="/services" class="hover:text-white transition-colors">Business Consulting</a></li>
+                            <li><a href="/services" class="hover:text-white transition-colors">Management Services</a></li>
+                            <li><a href="/services" class="hover:text-white transition-colors">Professional Solutions</a>
+                            </li>
                         <?php endif; ?>
                         <li><a href="/services"
                                 class="hover:text-white transition-colors font-medium text-blue-400">View All Services
@@ -60,6 +60,7 @@
                     <h4 class="text-base font-semibold mb-4">Company</h4>
                     <ul class="space-y-3 text-sm text-gray-300">
                         <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="/about" class="hover:text-white transition-colors">About</a></li>
                         <li><a href="/vision-mission" class="hover:text-white transition-colors">Vision & Mission</a>
                         </li>
                         <li><a href="/cosultant" class="hover:text-white transition-colors">Consultants</a></li>

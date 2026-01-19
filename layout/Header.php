@@ -1,17 +1,36 @@
+<?php
+// Get current page path
+$currentPath = $_SERVER['REQUEST_URI'] ?? '/';
+$currentPath = parse_url($currentPath, PHP_URL_PATH);
+
+// Function to check if link is active
+function isActive($path, $currentPath)
+{
+    if ($path === '/' && $currentPath === '/') {
+        return true;
+    }
+    if ($path !== '/' && strpos($currentPath, $path) === 0) {
+        return true;
+    }
+    return false;
+}
+?>
+
 <div class="text-xs sm:text-sm px-4">
     <div class="container mx-auto">
         <div class="flex items-center justify-between py-2 min-h-[40px]">
             <div class="flex items-center gap-2">
-                <i class='bx bx-envelope text-orange-500 text-base'></i>
+                <i class='bx bx-envelope text-[#505CEE] text-base'></i>
                 <a href="mailto:operation@surenusantara.com"
-                    class="text-[#333] underline hover:text-orange-500 transition-colors">operation@surenusantara.com</a>
+                    class="text-[#333] underline hover:text-[#505CEE] transition-colors">operation@surenusantara.com</a>
             </div>
 
             <div class="flex items-center gap-2">
-                <i class='bx bx-map-pin text-orange-500 text-base'></i>
+                <i class='bx bx-map-pin text-[#505CEE] text-base'></i>
                 <span class="text-[#333]">Menteng, Jakarta Pusat</span>
-                <a href="#"
-                    class="text-orange-500 underline font-medium hover:text-[#e55a00] transition-colors">Change</a>
+                <a href="https://maps.app.goo.gl/X27jv2V31XysCqqi8?g_st=aw"
+                    target="_blank"
+                    class="text-[#505CEE] underline font-medium hover:text-[#505CEE] transition-colors">Change</a>
             </div>
         </div>
     </div>
@@ -31,20 +50,23 @@
                 <nav class="hidden lg:flex items-center gap-6">
                     <ul class="flex items-center gap-6 text-sm">
                         <li> <a href="/"
-                                class="text-[#333] no-underline font-normal hover:text-orange-500 transition-colors">Home</a>
+                                class="<?php echo isActive('/', $currentPath) ? 'text-[#505CEE] font-semibold' : 'text-[#333] font-normal'; ?> no-underline hover:text-[#505CEE] transition-colors">Home</a>
+                        </li>
+                        <li> <a href="/about"
+                                class="<?php echo isActive('/about', $currentPath) ? 'text-[#505CEE] font-semibold' : 'text-[#333] font-normal'; ?> no-underline hover:text-[#505CEE] transition-colors">About</a>
                         </li>
                         <li> <a href="/vision-mission"
-                                class="text-[#333] no-underline font-normal hover:text-orange-500 transition-colors">Vision
+                                class="<?php echo isActive('/vision-mission', $currentPath) ? 'text-[#505CEE] font-semibold' : 'text-[#333] font-normal'; ?> no-underline hover:text-[#505CEE] transition-colors">Vision
                                 Mission</a>
                         </li>
                         <li> <a href="/services"
-                                class="text-[#333] no-underline font-normal hover:text-orange-500 transition-colors">Services</a>
+                                class="<?php echo isActive('/services', $currentPath) ? 'text-[#505CEE] font-semibold' : 'text-[#333] font-normal'; ?> no-underline hover:text-[#505CEE] transition-colors">Services</a>
                         </li>
                         <li> <a href="/cosultant"
-                                class="text-[#333] no-underline font-normal hover:text-orange-500 transition-colors">Consultants</a>
+                                class="<?php echo isActive('/cosultant', $currentPath) ? 'text-[#505CEE] font-semibold' : 'text-[#333] font-normal'; ?> no-underline hover:text-[#505CEE] transition-colors">Consultants</a>
                         </li>
                         <li> <a href="/contact"
-                                class="text-[#333] no-underline font-normal hover:text-orange-500 transition-colors">Contact</a>
+                                class="<?php echo isActive('/contact', $currentPath) ? 'text-[#505CEE] font-semibold' : 'text-[#333] font-normal'; ?> no-underline hover:text-[#505CEE] transition-colors">Contact</a>
                         </li>
                     </ul>
                 </nav>
@@ -80,24 +102,28 @@
             <ul class="flex flex-col gap-4">
                 <li>
                     <a href="/"
-                        class="block text-lg text-[#333] no-underline font-normal hover:text-orange-500 transition-colors py-2">Home</a>
+                        class="block text-lg <?php echo isActive('/', $currentPath) ? 'text-[#505CEE] font-semibold' : 'text-[#333] font-normal'; ?> no-underline hover:text-[#505CEE] transition-colors py-2">Home</a>
+                </li>
+                <li>
+                    <a href="/about"
+                        class="block text-lg <?php echo isActive('/about', $currentPath) ? 'text-[#505CEE] font-semibold' : 'text-[#333] font-normal'; ?> no-underline hover:text-[#505CEE] transition-colors py-2">About</a>
                 </li>
                 <li>
                     <a href="/vision-mission"
-                        class="block text-lg text-[#333] no-underline font-normal hover:text-orange-500 transition-colors py-2">Vision
+                        class="block text-lg <?php echo isActive('/vision-mission', $currentPath) ? 'text-[#505CEE] font-semibold' : 'text-[#333] font-normal'; ?> no-underline hover:text-[#505CEE] transition-colors py-2">Vision
                         Mission</a>
                 </li>
                 <li>
                     <a href="/services"
-                        class="block text-lg text-[#333] no-underline font-normal hover:text-orange-500 transition-colors py-2">Services</a>
+                        class="block text-lg <?php echo isActive('/services', $currentPath) ? 'text-[#505CEE] font-semibold' : 'text-[#333] font-normal'; ?> no-underline hover:text-[#505CEE] transition-colors py-2">Services</a>
                 </li>
                 <li>
                     <a href="/cosultant"
-                        class="block text-lg text-[#333] no-underline font-normal hover:text-orange-500 transition-colors py-2">Consultants</a>
+                        class="block text-lg <?php echo isActive('/cosultant', $currentPath) ? 'text-[#505CEE] font-semibold' : 'text-[#333] font-normal'; ?> no-underline hover:text-[#505CEE] transition-colors py-2">Consultants</a>
                 </li>
                 <li>
                     <a href="/contact"
-                        class="block text-lg text-[#333] no-underline font-normal hover:text-orange-500 transition-colors py-2">Contact</a>
+                        class="block text-lg <?php echo isActive('/contact', $currentPath) ? 'text-[#505CEE] font-semibold' : 'text-[#333] font-normal'; ?> no-underline hover:text-[#505CEE] transition-colors py-2">Contact</a>
                 </li>
             </ul>
         </nav>

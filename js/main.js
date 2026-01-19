@@ -344,8 +344,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // Remove default inactive classes
         link.classList.remove("text-[#333]", "font-normal", "no-underline");
 
-        // Add active classes
-        link.classList.add("text-orange-500", "font-medium", "underline");
+        // Add active classes (blue color to match Header.php)
+        link.classList.add("text-[#505CEE]", "font-semibold");
       }
     } catch (e) {
       // Ignore invalid URLs
