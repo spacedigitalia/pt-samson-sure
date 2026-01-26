@@ -173,13 +173,28 @@ $dataPerseroan = $dataPerseroanController->getAll();
                                             <?php echo htmlspecialchars($data['company_name'] ?? 'Nama Perusahaan'); ?>
                                         </h3>
                                         <?php if (!empty($data['president_director'])): ?>
-                                            <div class="flex items-center gap-3">
+                                            <div class="flex items-center gap-3 mb-4">
                                                 <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
                                                     <i class='bx bx-user text-xl text-white'></i>
                                                 </div>
                                                 <p class="text-white/90 text-base font-medium">
                                                     <?php echo htmlspecialchars($data['president_director']); ?>
                                                 </p>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <!-- CTA Buttons -->
+                                        <?php if (!empty($data['skd']) || !empty($data['skb'])): ?>
+                                            <div class="mt-4">
+                                                <button
+                                                    onclick="openSKDocumentModal(<?php echo htmlspecialchars(json_encode([
+                                                                                        'skd' => $data['skd'] ?? null,
+                                                                                        'skb' => $data['skb'] ?? null
+                                                                                    ])); ?>)"
+                                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white text-sm font-semibold border border-white/30 transition-all">
+                                                    <i class='bx bx-file-blank text-lg'></i>
+                                                    Lihat SKD & SKB
+                                                </button>
                                             </div>
                                         <?php endif; ?>
                                     </div>
@@ -235,7 +250,18 @@ $dataPerseroan = $dataPerseroanController->getAll();
                                             </div>
                                             <h4 class="text-sm font-bold text-[#2C3A47] uppercase tracking-wide">NPWP</h4>
                                         </div>
-                                        <p class="text-[#64748B] text-base font-medium"><?php echo htmlspecialchars($data['npwp']); ?></p>
+                                        <p class="text-[#64748B] text-base font-medium mb-4"><?php echo htmlspecialchars($data['npwp']); ?></p>
+                                        <?php if (!empty($data['imd']) || !empty($data['imb'])): ?>
+                                            <button
+                                                onclick="openDocumentModal(<?php echo htmlspecialchars(json_encode([
+                                                                                'imd' => $data['imd'] ?? null,
+                                                                                'imb' => $data['imb'] ?? null
+                                                                            ])); ?>)"
+                                                class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#505CEE] to-[#8A2BE2] text-white text-sm font-semibold hover:shadow-lg transition-all">
+                                                <i class='bx bx-image text-lg'></i>
+                                                Lihat Dokumen
+                                            </button>
+                                        <?php endif; ?>
                                     </div>
                                 <?php endif; ?>
 
@@ -294,6 +320,138 @@ $dataPerseroan = $dataPerseroanController->getAll();
     </section>
 
     <?php require_once __DIR__ . '/../layout/Footer.php'; ?>
+
+    <!-- Document Modal (NPWP - IMD & IMB) -->
+    <div id="documentModal" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/60 backdrop-blur-sm" style="display: none;">
+        <div class="relative w-full max-w-6xl mx-4 max-h-[90vh] overflow-hidden bg-white rounded-3xl shadow-2xl">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-6 border-b border-slate-200 bg-gradient-to-r from-[#505CEE] to-[#8A2BE2]">
+                <h3 class="text-2xl font-bold text-white">Dokumen NPWP</h3>
+                <button
+                    onclick="closeDocumentModal()"
+                    class="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors">
+                    <i class='bx bx-x text-2xl'></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto max-h-[calc(90vh-100px)]">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- IMD Document -->
+                    <div id="imdContainer" class="hidden">
+                        <div class="mb-3">
+                            <h4 class="text-lg font-bold text-[#2C3A47] flex items-center gap-2">
+                                <i class='bx bx-file-blank text-[#505CEE]'></i>
+                                NPWP Depan
+                            </h4>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border-2 border-slate-200 bg-slate-50">
+                            <img
+                                id="imdImage"
+                                src=""
+                                alt="IMD Document"
+                                class="w-full h-auto object-contain"
+                                loading="lazy"
+                                decoding="async"
+                                onerror="this.src='https://via.placeholder.com/600x800?text=Image+Not+Found'">
+                        </div>
+                    </div>
+
+                    <!-- IMB Document -->
+                    <div id="imbContainer" class="hidden">
+                        <div class="mb-3">
+                            <h4 class="text-lg font-bold text-[#2C3A47] flex items-center gap-2">
+                                <i class='bx bx-file-blank text-[#505CEE]'></i>
+                                NPWP Belakang
+                            </h4>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border-2 border-slate-200 bg-slate-50">
+                            <img
+                                id="imbImage"
+                                src=""
+                                alt="IMB Document"
+                                class="w-full h-auto object-contain"
+                                loading="lazy"
+                                decoding="async"
+                                onerror="this.src='https://via.placeholder.com/600x800?text=Image+Not+Found'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div id="emptyState" class="hidden text-center py-12">
+                    <i class='bx bx-inbox text-6xl text-slate-300 mb-4 block'></i>
+                    <p class="text-slate-500">Dokumen tidak tersedia</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SK Document Modal (SKD & SKB) -->
+    <div id="skDocumentModal" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/60 backdrop-blur-sm" style="display: none;">
+        <div class="relative w-full max-w-6xl mx-4 max-h-[90vh] overflow-hidden bg-white rounded-3xl shadow-2xl">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-6 border-b border-slate-200 bg-gradient-to-r from-[#505CEE] to-[#8A2BE2]">
+                <h3 class="text-2xl font-bold text-white">Dokumen SK</h3>
+                <button
+                    onclick="closeSKDocumentModal()"
+                    class="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors">
+                    <i class='bx bx-x text-2xl'></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto max-h-[calc(90vh-100px)]">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- SKD Document -->
+                    <div id="skdContainer" class="hidden">
+                        <div class="mb-3">
+                            <h4 class="text-lg font-bold text-[#2C3A47] flex items-center gap-2">
+                                <i class='bx bx-file-blank text-[#505CEE]'></i>
+                                SK Pengesahan Badan Hukum Perseroan Terbatas
+                            </h4>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border-2 border-slate-200 bg-slate-50">
+                            <img
+                                id="skdImage"
+                                src=""
+                                alt="SKD Document"
+                                class="w-full h-auto object-contain"
+                                loading="lazy"
+                                decoding="async"
+                                onerror="this.src='https://via.placeholder.com/600x800?text=Image+Not+Found'">
+                        </div>
+                    </div>
+
+                    <!-- SKB Document -->
+                    <div id="skbContainer" class="hidden">
+                        <div class="mb-3">
+                            <h4 class="text-lg font-bold text-[#2C3A47] flex items-center gap-2">
+                                <i class='bx bx-file-blank text-[#505CEE]'></i>
+                                SK Pengesahan Badan Hukum Perseroan Terbatas
+                            </h4>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border-2 border-slate-200 bg-slate-50">
+                            <img
+                                id="skbImage"
+                                src=""
+                                alt="SKB Document"
+                                class="w-full h-auto object-contain"
+                                loading="lazy"
+                                decoding="async"
+                                onerror="this.src='https://via.placeholder.com/600x800?text=Image+Not+Found'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div id="skEmptyState" class="hidden text-center py-12">
+                    <i class='bx bx-inbox text-6xl text-slate-300 mb-4 block'></i>
+                    <p class="text-slate-500">Dokumen tidak tersedia</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- AOS Animation JS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

@@ -4,6 +4,7 @@ require_once __DIR__ . '/controllers/HomeController.php';
 require_once __DIR__ . '/controllers/ServicesController.php';
 require_once __DIR__ . '/controllers/CompanyManagementController.php';
 require_once __DIR__ . '/controllers/AboutController.php';
+require_once __DIR__ . '/controllers/StrukturOrganisasiController.php';
 
 $homeController = new HomeController($db);
 $homeData = $homeController->getFirst();
@@ -17,6 +18,10 @@ $services = array_slice($allServices, 0, 6); // Limit to 6 services
 
 $companyManagementController = new CompanyManagementController($db);
 $managements = $companyManagementController->getAll();
+
+$strukturOrganisasiController = new StrukturOrganisasiController($db);
+$strukturOrganisasiData = $strukturOrganisasiController->getFirst();
+
 ?>
 
 <!DOCTYPE html>
@@ -71,9 +76,9 @@ $managements = $companyManagementController->getAll();
 
 <body>
     <?php require_once __DIR__ . '/layout/Header.php'; ?>
-    <main class="overflow-hidden px-4">
+    <main class="overflow-hidden">
         <!-- Home -->
-        <section class="container min-h-full py-20 flex flex-col">
+        <section class="container min-h-full py-20 flex flex-col px-4">
             <?php if ($homeData): ?>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                     <!-- Left Column - Content -->
@@ -149,8 +154,7 @@ $managements = $companyManagementController->getAll();
         </section>
 
         <!-- Features -->
-
-        <section class="container min-h-full py-12">
+        <section class="container min-h-full py-12 px-4">
             <?php if (!empty($aboutData)): ?>
                 <?php
                 $items = $aboutData['items'] ?? [];
@@ -200,7 +204,7 @@ $managements = $companyManagementController->getAll();
         </section>
 
         <!-- Services -->
-        <section class="container min-h-full py-12">
+        <section class="container min-h-full py-12 px-4">
             <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-lg font-semibold text-[#8A2BE2] mb-4">OUR SERVICES</h2>
                 <h3 class="text-4xl md:text-5xl font-bold text-[#2C3A47] leading-tight">
@@ -287,8 +291,48 @@ $managements = $companyManagementController->getAll();
             <?php endif; ?>
         </section>
 
+        <!-- Stuktur Organisasi -->
+        <section class="relative py-8 md:py-12 lg:py-16">
+            <div class="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[80vh] flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat px-4"
+                style="background-image: url('../assets/bg.jpg'); background-attachment: fixed;">
+                <!-- Overlay Background -->
+                <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
+
+                <div class="relative z-10 text-center mb-8 md:mb-12 w-full max-w-6xl mx-auto px-4" data-aos="fade-up">
+                    <h2 class="text-sm md:text-lg font-semibold text-white mb-2 md:mb-4">OUR STRUKTUR ORGANISASI</h2>
+                    <h3 class="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-tight px-2">
+                        Stuktur Organisasi <span class="text-white">Kami</span>
+                    </h3>
+                    <p class="text-sm md:text-lg text-white mt-3 md:mt-4 max-w-2xl mx-auto px-2">
+                        Struktur organisasi yang menggerakkan perusahaan kami
+                    </p>
+                </div>
+
+                <?php if ($strukturOrganisasiData && !empty($strukturOrganisasiData['image'])): ?>
+                    <div class="relative z-10 w-full max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                        <div>
+                            <img src="<?php echo htmlspecialchars($strukturOrganisasiData['image']); ?>"
+                                alt="Struktur Organisasi"
+                                class="w-full h-auto object-contain rounded-md md:rounded-lg"
+                                onerror="this.src='https://via.placeholder.com/1200x800?text=Image+Not+Found'">
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <div class="relative z-10 w-full max-w-5xl mx-auto px-4 md:px-6 lg:px-8" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-white rounded-xl md:rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 lg:p-12 text-center">
+                            <i class='bx bx-sitemap text-4xl md:text-6xl text-slate-300 mb-3 md:mb-4 block'></i>
+                            <h3 class="text-lg md:text-xl font-semibold text-slate-700 mb-2">Struktur Organisasi Belum Tersedia</h3>
+                            <p class="text-sm md:text-base text-slate-500">
+                                Gambar struktur organisasi sedang dalam proses pembaruan.
+                            </p>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </section>
+
         <!-- Company management -->
-        <section class="container min-h-full py-12">
+        <section class="container min-h-full py-12 px-4">
             <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-lg font-semibold text-[#8A2BE2] mb-4">OUR TEAM</h2>
                 <h3 class="text-4xl md:text-5xl font-bold text-[#2C3A47] leading-tight">
@@ -353,7 +397,7 @@ $managements = $companyManagementController->getAll();
         </section>
 
         <!-- Consultasi Banner -->
-        <section class="container min-h-full py-12">
+        <section class="container min-h-full py-12 px-4">
             <div
                 class="rounded-3xl bg-gradient-to-r from-[#505CEE] to-[#8A2BE2] p-8 md:p-16 text-center shadow-2xl relative overflow-hidden">
                 <!-- Decorative Elements -->

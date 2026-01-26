@@ -23,6 +23,159 @@ if (typeof AOS !== "undefined") {
   });
 }
 
+//======================= Document Modal Functions =======================//
+function openDocumentModal(documents) {
+  const modal = document.getElementById("documentModal");
+  if (!modal) return;
+
+  const imdContainer = document.getElementById("imdContainer");
+  const imbContainer = document.getElementById("imbContainer");
+  const imdImage = document.getElementById("imdImage");
+  const imbImage = document.getElementById("imbImage");
+  const emptyState = document.getElementById("emptyState");
+
+  // Reset visibility
+  if (imdContainer) imdContainer.classList.add("hidden");
+  if (imbContainer) imbContainer.classList.add("hidden");
+  if (emptyState) emptyState.classList.add("hidden");
+
+  // Show IMD if available
+  if (documents.imd && imdImage && imdContainer) {
+    imdImage.loading = "eager"; // Load immediately when modal opens
+    imdImage.src = documents.imd;
+    imdContainer.classList.remove("hidden");
+  }
+
+  // Show IMB if available
+  if (documents.imb && imbImage && imbContainer) {
+    imbImage.loading = "eager"; // Load immediately when modal opens
+    imbImage.src = documents.imb;
+    imbContainer.classList.remove("hidden");
+  }
+
+  // Show empty state if no documents
+  if (!documents.imd && !documents.imb && emptyState) {
+    emptyState.classList.remove("hidden");
+  }
+
+  // Show modal with immediate display using requestAnimationFrame for smooth animation
+  requestAnimationFrame(() => {
+    modal.style.display = "flex";
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  });
+}
+
+function closeDocumentModal() {
+  const modal = document.getElementById("documentModal");
+  if (!modal) return;
+
+  modal.classList.add("hidden");
+  modal.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+//======================= SK Document Modal Functions (SKD & SKB) =======================//
+function openSKDocumentModal(documents) {
+  const modal = document.getElementById("skDocumentModal");
+  if (!modal) return;
+
+  const skdContainer = document.getElementById("skdContainer");
+  const skbContainer = document.getElementById("skbContainer");
+  const skdImage = document.getElementById("skdImage");
+  const skbImage = document.getElementById("skbImage");
+  const emptyState = document.getElementById("skEmptyState");
+
+  // Reset visibility
+  if (skdContainer) skdContainer.classList.add("hidden");
+  if (skbContainer) skbContainer.classList.add("hidden");
+  if (emptyState) emptyState.classList.add("hidden");
+
+  // Show SKD if available
+  if (documents.skd && skdImage && skdContainer) {
+    skdImage.loading = "eager"; // Load immediately when modal opens
+    skdImage.src = documents.skd;
+    skdContainer.classList.remove("hidden");
+  }
+
+  // Show SKB if available
+  if (documents.skb && skbImage && skbContainer) {
+    skbImage.loading = "eager"; // Load immediately when modal opens
+    skbImage.src = documents.skb;
+    skbContainer.classList.remove("hidden");
+  }
+
+  // Show empty state if no documents
+  if (!documents.skd && !documents.skb && emptyState) {
+    emptyState.classList.remove("hidden");
+  }
+
+  // Show modal with immediate display using requestAnimationFrame for smooth animation
+  requestAnimationFrame(() => {
+    modal.style.display = "flex";
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  });
+}
+
+function closeSKDocumentModal() {
+  const modal = document.getElementById("skDocumentModal");
+  if (!modal) return;
+
+  modal.classList.add("hidden");
+  modal.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+// Initialize all modal event listeners once
+(function initModals() {
+  // Use IIFE to avoid waiting for DOMContentLoaded
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initModals);
+    return;
+  }
+
+  // Initialize document modal
+  const documentModal = document.getElementById("documentModal");
+  if (documentModal) {
+    documentModal.addEventListener("click", function (e) {
+      if (e.target === this) {
+        closeDocumentModal();
+      }
+    });
+  }
+
+  // Initialize SK document modal
+  const skDocumentModal = document.getElementById("skDocumentModal");
+  if (skDocumentModal) {
+    skDocumentModal.addEventListener("click", function (e) {
+      if (e.target === this) {
+        closeSKDocumentModal();
+      }
+    });
+  }
+
+  // Single Escape key handler for all modals
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      const docModal = document.getElementById("documentModal");
+      const skModal = document.getElementById("skDocumentModal");
+      
+      if (docModal && !docModal.classList.contains("hidden")) {
+        closeDocumentModal();
+      } else if (skModal && !skModal.classList.contains("hidden")) {
+        closeSKDocumentModal();
+      }
+    }
+  });
+})();
+
+// Expose functions to window for onclick handlers (available immediately)
+window.openDocumentModal = openDocumentModal;
+window.closeDocumentModal = closeDocumentModal;
+window.openSKDocumentModal = openSKDocumentModal;
+window.closeSKDocumentModal = closeSKDocumentModal;
+
 //======================= Sidebar Toggle Mobile =======================//
 document.addEventListener("DOMContentLoaded", function () {
   // Nav toggle for collapsible menu items
