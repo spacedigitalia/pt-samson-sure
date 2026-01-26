@@ -141,20 +141,50 @@ $dataPerseroan = $dataPerseroanController->getAll();
                 <?php foreach ($dataPerseroan as $index => $data): ?>
                     <div class="bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden" data-aos="fade-up" data-aos-delay="<?php echo $index * 100; ?>">
                         <!-- Header Card -->
-                        <div class="bg-gradient-to-r from-[#505CEE] to-[#8A2BE2] px-8 py-8">
-                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">
-                                <?php echo htmlspecialchars($data['company_name'] ?? 'Nama Perusahaan'); ?>
-                            </h3>
-                            <?php if (!empty($data['president_director'])): ?>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                                        <i class='bx bx-user text-xl text-white'></i>
-                                    </div>
-                                    <p class="text-white/90 text-base font-medium">
-                                        <?php echo htmlspecialchars($data['president_director']); ?>
-                                    </p>
+                        <div class="bg-gradient-to-r from-[#505CEE] to-[#8A2BE2] px-8 py-8 relative overflow-hidden">
+                            <!-- Background Image -->
+                            <?php if (!empty($data['image'])): ?>
+                                <div class="absolute inset-0 opacity-20">
+                                    <img src="<?php echo htmlspecialchars($data['image']); ?>"
+                                        alt="Data Perseroan"
+                                        class="w-full h-full object-cover"
+                                        onerror="this.style.display='none'">
                                 </div>
                             <?php endif; ?>
+
+                            <!-- Content Overlay -->
+                            <div class="relative z-10">
+                                <div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
+                                    <!-- Image Thumbnail -->
+                                    <?php if (!empty($data['image'])): ?>
+                                        <div class="flex-shrink-0">
+                                            <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden border-4 border-white/30 shadow-xl bg-white">
+                                                <img src="<?php echo htmlspecialchars($data['image']); ?>"
+                                                    alt="Data Perseroan"
+                                                    class="w-full h-full object-cover"
+                                                    onerror="this.src='https://via.placeholder.com/200?text=No+Image'">
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <!-- Text Content -->
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">
+                                            <?php echo htmlspecialchars($data['company_name'] ?? 'Nama Perusahaan'); ?>
+                                        </h3>
+                                        <?php if (!empty($data['president_director'])): ?>
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                                                    <i class='bx bx-user text-xl text-white'></i>
+                                                </div>
+                                                <p class="text-white/90 text-base font-medium">
+                                                    <?php echo htmlspecialchars($data['president_director']); ?>
+                                                </p>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Content Card -->

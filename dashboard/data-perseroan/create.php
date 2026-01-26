@@ -43,7 +43,7 @@ $breadcrumbs = [
 
         <!-- Content -->
         <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <form action="/dashboard/data-perseroan/process.php" method="POST" class="space-y-6" id="dataPerseroanForm">
+            <form action="/dashboard/data-perseroan/process.php" method="POST" enctype="multipart/form-data" class="space-y-6" id="dataPerseroanForm">
                 <input type="hidden" name="action" value="create">
 
                 <!-- Activities -->
@@ -114,6 +114,56 @@ $breadcrumbs = [
                     <label class="block text-sm font-semibold text-slate-700 mb-2">Investment Status</label>
                     <input type="text" name="investment_status" placeholder="Masukkan status investasi..."
                         class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition-all">
+                </div>
+
+                <!-- Image -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Image (Upload)</label>
+                    <div class="relative group">
+                        <input type="file" name="image" accept="image/*"
+                            class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all">
+                    </div>
+                    <p class="mt-1 text-[10px] text-slate-500 italic">Format: JPG, PNG, WEBP (Max 2MB)</p>
+                </div>
+
+                <!-- IMD -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">IMD (Upload)</label>
+                    <div class="relative group">
+                        <input type="file" name="imd" accept="image/*"
+                            class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all">
+                    </div>
+                    <p class="mt-1 text-[10px] text-slate-500 italic">Format: JPG, PNG, WEBP (Max 2MB)</p>
+                </div>
+
+                <!-- IMB -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">IMB (Upload)</label>
+                    <div class="relative group">
+                        <input type="file" name="imb" accept="image/*"
+                            class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all">
+                    </div>
+                    <p class="mt-1 text-[10px] text-slate-500 italic">Format: JPG, PNG, WEBP (Max 2MB)</p>
+                </div>
+
+                <!-- SKD -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">SKD (Upload)</label>
+                    <div class="relative group">
+                        <input type="file" name="skd" accept="image/*"
+                            class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all">
+                    </div>
+                    <p class="mt-1 text-[10px] text-slate-500 italic">Format: JPG, PNG, WEBP (Max 2MB)</p>
+                </div>
+
+                <!-- SKB -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">SKB (Upload)</label>
+                    <div class="relative group">
+                        <input type="file" name="skb" accept="image/*"
+                            class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all">
+                    </div>
+                    <p class="mt-1 text-[10px] text-slate-500 italic">Format: JPG, PNG, WEBP (Max 2MB)</p>
                 </div>
 
                 <div class="flex items-center gap-4 pt-4 border-t border-slate-100">

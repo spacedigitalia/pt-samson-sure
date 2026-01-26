@@ -65,7 +65,7 @@ if (!is_array($activities)) {
 
         <!-- Content -->
         <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <form action="process.php" method="POST" class="space-y-6" id="dataPerseroanForm">
+            <form action="process.php" method="POST" enctype="multipart/form-data" class="space-y-6" id="dataPerseroanForm">
                 <input type="hidden" name="action" value="update">
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($dataPerseroan['id']); ?>">
 
@@ -166,6 +166,96 @@ if (!is_array($activities)) {
                         class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition-all">
                 </div>
 
+                <!-- Image -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Image (Upload New)</label>
+                    <?php if (!empty($dataPerseroan['image'])): ?>
+                        <div class="mb-3 flex items-center gap-3 p-2 border border-slate-100 rounded-xl bg-slate-50">
+                            <img src="../../<?php echo htmlspecialchars($dataPerseroan['image']); ?>"
+                                class="w-12 h-12 rounded-lg object-cover shadow-sm border border-white"
+                                onerror="this.src='https://via.placeholder.com/50?text=Error'">
+                            <div class="text-[10px] text-slate-500 truncate">
+                                Current image: <?php echo basename($dataPerseroan['image']); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <input type="file" name="image" accept="image/*"
+                        class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all">
+                    <p class="mt-1 text-[10px] text-slate-500 italic">Leave empty to keep current image</p>
+                </div>
+
+                <!-- IMD -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">IMD (Upload New)</label>
+                    <?php if (!empty($dataPerseroan['imd'])): ?>
+                        <div class="mb-3 flex items-center gap-3 p-2 border border-slate-100 rounded-xl bg-slate-50">
+                            <img src="../../<?php echo htmlspecialchars($dataPerseroan['imd']); ?>"
+                                class="w-12 h-12 rounded-lg object-cover shadow-sm border border-white"
+                                onerror="this.src='https://via.placeholder.com/50?text=Error'">
+                            <div class="text-[10px] text-slate-500 truncate">
+                                Current IMD: <?php echo basename($dataPerseroan['imd']); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <input type="file" name="imd" accept="image/*"
+                        class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all">
+                    <p class="mt-1 text-[10px] text-slate-500 italic">Leave empty to keep current IMD</p>
+                </div>
+
+                <!-- IMB -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">IMB (Upload New)</label>
+                    <?php if (!empty($dataPerseroan['imb'])): ?>
+                        <div class="mb-3 flex items-center gap-3 p-2 border border-slate-100 rounded-xl bg-slate-50">
+                            <img src="../../<?php echo htmlspecialchars($dataPerseroan['imb']); ?>"
+                                class="w-12 h-12 rounded-lg object-cover shadow-sm border border-white"
+                                onerror="this.src='https://via.placeholder.com/50?text=Error'">
+                            <div class="text-[10px] text-slate-500 truncate">
+                                Current IMB: <?php echo basename($dataPerseroan['imb']); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <input type="file" name="imb" accept="image/*"
+                        class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all">
+                    <p class="mt-1 text-[10px] text-slate-500 italic">Leave empty to keep current IMB</p>
+                </div>
+
+                <!-- SKD -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">SKD (Upload New)</label>
+                    <?php if (!empty($dataPerseroan['skd'])): ?>
+                        <div class="mb-3 flex items-center gap-3 p-2 border border-slate-100 rounded-xl bg-slate-50">
+                            <img src="../../<?php echo htmlspecialchars($dataPerseroan['skd']); ?>"
+                                class="w-12 h-12 rounded-lg object-cover shadow-sm border border-white"
+                                onerror="this.src='https://via.placeholder.com/50?text=Error'">
+                            <div class="text-[10px] text-slate-500 truncate">
+                                Current SKD: <?php echo basename($dataPerseroan['skd']); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <input type="file" name="skd" accept="image/*"
+                        class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all">
+                    <p class="mt-1 text-[10px] text-slate-500 italic">Leave empty to keep current SKD</p>
+                </div>
+
+                <!-- SKB -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">SKB (Upload New)</label>
+                    <?php if (!empty($dataPerseroan['skb'])): ?>
+                        <div class="mb-3 flex items-center gap-3 p-2 border border-slate-100 rounded-xl bg-slate-50">
+                            <img src="../../<?php echo htmlspecialchars($dataPerseroan['skb']); ?>"
+                                class="w-12 h-12 rounded-lg object-cover shadow-sm border border-white"
+                                onerror="this.src='https://via.placeholder.com/50?text=Error'">
+                            <div class="text-[10px] text-slate-500 truncate">
+                                Current SKB: <?php echo basename($dataPerseroan['skb']); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <input type="file" name="skb" accept="image/*"
+                        class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-slate-900 file:text-white hover:file:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all">
+                    <p class="mt-1 text-[10px] text-slate-500 italic">Leave empty to keep current SKB</p>
+                </div>
+
                 <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
                     <button type="submit"
                         class="flex-1 md:flex-none rounded-xl bg-slate-900 px-10 py-3.5 text-sm font-semibold text-white hover:bg-slate-800 transition-all shadow-sm">
@@ -182,13 +272,13 @@ if (!is_array($activities)) {
 </div>
 
 <script>
-function addActivity() {
-    const container = document.getElementById('activitiesContainer');
-    const activityCount = container.children.length;
-    
-    const newActivity = document.createElement('div');
-    newActivity.className = 'activity-item flex gap-2';
-    newActivity.innerHTML = `
+    function addActivity() {
+        const container = document.getElementById('activitiesContainer');
+        const activityCount = container.children.length;
+
+        const newActivity = document.createElement('div');
+        newActivity.className = 'activity-item flex gap-2';
+        newActivity.innerHTML = `
         <input type="text" name="activities[]" required placeholder="Masukkan activity title..."
             class="flex-1 rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition-all">
         <button type="button" onclick="removeActivity(this)"
@@ -196,27 +286,27 @@ function addActivity() {
             <i class='bx bx-trash'></i>
         </button>
     `;
-    container.appendChild(newActivity);
-    
-    // Show remove buttons if more than 1 activity
-    if (activityCount >= 1) {
-        const firstRemoveBtn = container.querySelector('.activity-item:first-child button');
-        if (firstRemoveBtn) firstRemoveBtn.classList.remove('hidden');
-    }
-}
+        container.appendChild(newActivity);
 
-function removeActivity(button) {
-    const container = document.getElementById('activitiesContainer');
-    if (container.children.length > 1) {
-        button.closest('.activity-item').remove();
-        
-        // Hide remove button if only 1 activity left
-        if (container.children.length === 1) {
+        // Show remove buttons if more than 1 activity
+        if (activityCount >= 1) {
             const firstRemoveBtn = container.querySelector('.activity-item:first-child button');
-            if (firstRemoveBtn) firstRemoveBtn.classList.add('hidden');
+            if (firstRemoveBtn) firstRemoveBtn.classList.remove('hidden');
         }
     }
-}
+
+    function removeActivity(button) {
+        const container = document.getElementById('activitiesContainer');
+        if (container.children.length > 1) {
+            button.closest('.activity-item').remove();
+
+            // Hide remove button if only 1 activity left
+            if (container.children.length === 1) {
+                const firstRemoveBtn = container.querySelector('.activity-item:first-child button');
+                if (firstRemoveBtn) firstRemoveBtn.classList.add('hidden');
+            }
+        }
+    }
 </script>
 
 <!-- Toastr JS -->

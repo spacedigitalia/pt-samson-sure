@@ -78,7 +78,7 @@ class DataPerseroanController
     /**
      * Create new data perseroan
      */
-    public function create(array $activities, ?string $companyName, ?string $presidentDirector, ?string $deedIncorporationNumber, ?string $nib, ?string $npwp, ?string $address, ?string $investmentStatus, int $userId): int
+    public function create(array $activities, ?string $companyName, ?string $presidentDirector, ?string $deedIncorporationNumber, ?string $nib, ?string $npwp, ?string $address, ?string $investmentStatus, ?string $image, ?string $imd, ?string $imb, ?string $skd, ?string $skb, int $userId): int
     {
         if (empty($activities) || !is_array($activities)) {
             throw new Exception('Activities wajib diisi dan harus berupa array.');
@@ -99,9 +99,14 @@ class DataPerseroanController
         $npwp = $npwp ?: null;
         $address = $address ?: null;
         $investmentStatus = $investmentStatus ?: null;
+        $image = $image ?: null;
+        $imd = $imd ?: null;
+        $imb = $imb ?: null;
+        $skd = $skd ?: null;
+        $skb = $skb ?: null;
 
-        $stmt = $this->db->prepare("INSERT INTO `data_perseroan` (activities, company_name, president_director, deed_incorporation_number, nib, npwp, address, investment_status, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param('ssssssssi', $activitiesJson, $companyName, $presidentDirector, $deedIncorporationNumber, $nib, $npwp, $address, $investmentStatus, $userId);
+        $stmt = $this->db->prepare("INSERT INTO `data_perseroan` (activities, company_name, president_director, deed_incorporation_number, nib, npwp, address, investment_status, image, imd, imb, skd, skb, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('sssssssssssssi', $activitiesJson, $companyName, $presidentDirector, $deedIncorporationNumber, $nib, $npwp, $address, $investmentStatus, $image, $imd, $imb, $skd, $skb, $userId);
         $stmt->execute();
         $newId = $stmt->insert_id;
         $stmt->close();
@@ -111,7 +116,7 @@ class DataPerseroanController
     /**
      * Update data perseroan
      */
-    public function update(int $id, array $activities, ?string $companyName, ?string $presidentDirector, ?string $deedIncorporationNumber, ?string $nib, ?string $npwp, ?string $address, ?string $investmentStatus): bool
+    public function update(int $id, array $activities, ?string $companyName, ?string $presidentDirector, ?string $deedIncorporationNumber, ?string $nib, ?string $npwp, ?string $address, ?string $investmentStatus, ?string $image, ?string $imd, ?string $imb, ?string $skd, ?string $skb): bool
     {
         if (empty($activities) || !is_array($activities)) {
             throw new Exception('Activities wajib diisi dan harus berupa array.');
@@ -130,6 +135,23 @@ class DataPerseroanController
             throw new Exception('Data tidak ditemukan.');
         }
 
+        // Keep existing images if new ones are not provided
+        if (empty($image)) {
+            $image = $existing['image'];
+        }
+        if (empty($imd)) {
+            $imd = $existing['imd'] ?? null;
+        }
+        if (empty($imb)) {
+            $imb = $existing['imb'] ?? null;
+        }
+        if (empty($skd)) {
+            $skd = $existing['skd'] ?? null;
+        }
+        if (empty($skb)) {
+            $skb = $existing['skb'] ?? null;
+        }
+
         $activitiesJson = json_encode($activities, JSON_UNESCAPED_UNICODE);
         $companyName = $companyName ?: null;
         $presidentDirector = $presidentDirector ?: null;
@@ -138,9 +160,14 @@ class DataPerseroanController
         $npwp = $npwp ?: null;
         $address = $address ?: null;
         $investmentStatus = $investmentStatus ?: null;
+        $image = $image ?: null;
+        $imd = $imd ?: null;
+        $imb = $imb ?: null;
+        $skd = $skd ?: null;
+        $skb = $skb ?: null;
 
-        $stmt = $this->db->prepare("UPDATE `data_perseroan` SET activities = ?, company_name = ?, president_director = ?, deed_incorporation_number = ?, nib = ?, npwp = ?, address = ?, investment_status = ? WHERE id = ?");
-        $stmt->bind_param('ssssssssi', $activitiesJson, $companyName, $presidentDirector, $deedIncorporationNumber, $nib, $npwp, $address, $investmentStatus, $id);
+        $stmt = $this->db->prepare("UPDATE `data_perseroan` SET activities = ?, company_name = ?, president_director = ?, deed_incorporation_number = ?, nib = ?, npwp = ?, address = ?, investment_status = ?, image = ?, imd = ?, imb = ?, skd = ?, skb = ? WHERE id = ?");
+        $stmt->bind_param('sssssssssssssi', $activitiesJson, $companyName, $presidentDirector, $deedIncorporationNumber, $nib, $npwp, $address, $investmentStatus, $image, $imd, $imb, $skd, $skb, $id);
         $stmt->execute();
         $success = $stmt->affected_rows > 0;
         $stmt->close();
@@ -156,6 +183,14 @@ class DataPerseroanController
         $existing = $this->getById($id);
         if (!$existing) {
             throw new Exception('Data tidak ditemukan.');
+        }
+
+        // Delete image files if exists
+        $imageFields = ['image', 'imd', 'imb', 'skd', 'skb'];
+        foreach ($imageFields as $field) {
+            if (!empty($existing[$field]) && file_exists(__DIR__ . '/../' . $existing[$field])) {
+                unlink(__DIR__ . '/../' . $existing[$field]);
+            }
         }
 
         $stmt = $this->db->prepare("DELETE FROM `data_perseroan` WHERE id = ?");

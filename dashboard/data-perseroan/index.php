@@ -107,6 +107,9 @@ $dataPerseroan = $controller->getAll();
                             <tr>
                                 <th
                                     class="px-6 py-4 text-left text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                                    Image</th>
+                                <th
+                                    class="px-6 py-4 text-left text-xs font-semibold text-slate-700 uppercase tracking-wider">
                                     Company Name</th>
                                 <th
                                     class="px-6 py-4 text-left text-xs font-semibold text-slate-700 uppercase tracking-wider">
@@ -135,6 +138,18 @@ $dataPerseroan = $controller->getAll();
                             <?php foreach ($dataPerseroan as $data): ?>
                                 <tr class="hover:bg-slate-50 transition-colors">
                                     <td class="px-6 py-4">
+                                        <?php if (!empty($data['image'])): ?>
+                                            <img src="../../<?php echo htmlspecialchars($data['image']); ?>"
+                                                class="w-12 h-12 rounded-lg object-cover shadow-sm border border-slate-200"
+                                                onerror="this.src='https://via.placeholder.com/50?text=No+Image'"
+                                                alt="Data Perseroan Image">
+                                        <?php else: ?>
+                                            <div class="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center">
+                                                <i class='bx bx-image text-slate-400 text-xl'></i>
+                                            </div>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td class="px-6 py-4">
                                         <div class="text-sm font-semibold text-slate-900">
                                             <?php echo htmlspecialchars($data['company_name'] ?? '-'); ?>
                                         </div>
@@ -146,10 +161,10 @@ $dataPerseroan = $controller->getAll();
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="text-sm text-slate-600 max-w-md">
-                                            <?php 
+                                            <?php
                                             $activities = $data['activities'] ?? [];
                                             if (is_array($activities) && !empty($activities)) {
-                                                $activityTitles = array_map(function($act) {
+                                                $activityTitles = array_map(function ($act) {
                                                     return htmlspecialchars($act['title'] ?? '');
                                                 }, $activities);
                                                 echo implode(', ', array_slice($activityTitles, 0, 3));

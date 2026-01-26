@@ -33,6 +33,43 @@ if (!$userId) {
 
 $controller = new DataPerseroanController($db);
 
+// Helper function to handle image upload
+function handleImageUpload($file, $targetDir = '../../uploads/data-perseroan/', $oldImage = null)
+{
+    if (!isset($file) || $file['error'] === UPLOAD_ERR_NO_FILE) {
+        return $oldImage;
+    }
+
+    $allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+    $maxSize = 2 * 1024 * 1024; // 2MB
+
+    if (!in_array($file['type'], $allowedTypes)) {
+        throw new Exception('Tipe file tidak didukung. Gunakan JPG, PNG, atau WEBP.');
+    }
+
+    if ($file['size'] > $maxSize) {
+        throw new Exception('Ukuran file terlalu besar. Maksimal 2MB.');
+    }
+
+    if (!is_dir($targetDir)) {
+        mkdir($targetDir, 0777, true);
+    }
+
+    $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+    $fileName = uniqid('data_perseroan_') . '.' . $extension;
+    $targetFile = $targetDir . $fileName;
+
+    if (move_uploaded_file($file['tmp_name'], $targetFile)) {
+        // Delete old image if it exists and is different
+        if ($oldImage && file_exists('../../' . $oldImage)) {
+            unlink('../../' . $oldImage);
+        }
+        return 'uploads/data-perseroan/' . $fileName;
+    }
+
+    throw new Exception('Gagal mengupload gambar.');
+}
+
 // Helper function to process activities array
 function processActivities($activitiesInput)
 {
@@ -66,8 +103,13 @@ try {
             $npwp = trim($_POST['npwp'] ?? '') ?: null;
             $address = trim($_POST['address'] ?? '') ?: null;
             $investmentStatus = trim($_POST['investment_status'] ?? '') ?: null;
+            $image = handleImageUpload($_FILES['image'] ?? null);
+            $imd = handleImageUpload($_FILES['imd'] ?? null);
+            $imb = handleImageUpload($_FILES['imb'] ?? null);
+            $skd = handleImageUpload($_FILES['skd'] ?? null);
+            $skb = handleImageUpload($_FILES['skb'] ?? null);
 
-            $controller->create($activities, $companyName, $presidentDirector, $deedIncorporationNumber, $nib, $npwp, $address, $investmentStatus, $userId);
+            $controller->create($activities, $companyName, $presidentDirector, $deedIncorporationNumber, $nib, $npwp, $address, $investmentStatus, $image, $imd, $imb, $skd, $skb, $userId);
             $_SESSION['success'] = 'Data perseroan berhasil ditambahkan.';
             header('Location: /dashboard/data-perseroan');
             exit;
@@ -95,8 +137,20 @@ try {
             $npwp = trim($_POST['npwp'] ?? '') ?: null;
             $address = trim($_POST['address'] ?? '') ?: null;
             $investmentStatus = trim($_POST['investment_status'] ?? '') ?: null;
+            $image = handleImageUpload($_FILES['image'] ?? null, '../../uploads/data-perseroan/', $existing['image'] ?? null);
+            $imd = handleImageUpload($_FILES['imd'] ?? null, '../../uploads/data-perseroan/', $existing['imd'] ?? null);
+            $imb = handleImageUpload($_FILES['imb'] ?? null, '../../uploads/data-perseroan/', $existing['imb'] ?? null);
+            $skd = handleImageUpload($_FILES['skd'] ?? null, '../../uploads/data-perseroan/', $existing['skd'] ?? null);
+            $skb = handleImageUpload($_FILES['skb'] ?? null, '../../uploads/data-perseroan/', $existing['skb'] ?? null);
 
-            $controller->update((int)$id, $activities, $companyName, $presidentDirector, $deedIncorporationNumber, $nib, $npwp, $address, $investmentStatus);
+            // If no new images uploaded, keep the existing ones
+            $imagePath = $image ?? ($existing['image'] ?? null);
+            $imdPath = $imd ?? ($existing['imd'] ?? null);
+            $imbPath = $imb ?? ($existing['imb'] ?? null);
+            $skdPath = $skd ?? ($existing['skd'] ?? null);
+            $skbPath = $skb ?? ($existing['skb'] ?? null);
+
+            $controller->update((int)$id, $activities, $companyName, $presidentDirector, $deedIncorporationNumber, $nib, $npwp, $address, $investmentStatus, $imagePath, $imdPath, $imbPath, $skdPath, $skbPath);
             $_SESSION['success'] = 'Data perseroan berhasil diupdate.';
             header('Location: data-perseroan');
             exit;
