@@ -222,7 +222,7 @@ if (!$userData) {
                                 <i class='bx bx-lock-alt text-xl text-slate-600'></i>
                                 <span class="text-sm font-semibold text-slate-700">Change Password</span>
                             </a>
-                            <form action="process.php" method="POST" class="m-0">
+                            <form action="../process.php" method="POST" class="m-0">
                                 <input type="hidden" name="action" value="logout">
                                 <button type="submit"
                                     class="w-full flex items-center gap-3 p-3 rounded-xl bg-rose-50 hover:bg-rose-100 border border-rose-200 transition-colors">
@@ -256,12 +256,12 @@ if (!$userData) {
                 </div>
 
                 <?php if (!empty($logs)): ?>
-                <div class="space-y-3 max-h-[600px] overflow-y-auto">
-                    <?php foreach ($logs as $log): ?>
-                    <div
-                        class="flex items-start gap-4 p-4 rounded-xl border border-slate-200 hover:bg-slate-50 transition-colors">
-                        <!-- Icon based on action type -->
-                        <div class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center
+                    <div class="space-y-3 max-h-[600px] overflow-y-auto">
+                        <?php foreach ($logs as $log): ?>
+                            <div
+                                class="flex items-start gap-4 p-4 rounded-xl border border-slate-200 hover:bg-slate-50 transition-colors">
+                                <!-- Icon based on action type -->
+                                <div class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center
                                     <?php
                                     $action = strtolower($log['action']);
                                     $iconClass = '';
@@ -324,59 +324,59 @@ if (!$userData) {
                                     }
                                     echo $bgClass . ' ' . $iconClass;
                                     ?>">
-                            <i class="bx <?php echo $icon; ?> text-xl"></i>
-                        </div>
-
-                        <!-- Log Content -->
-                        <div class="flex-1 min-w-0">
-                            <div class="flex items-start justify-between gap-4 mb-1">
-                                <div class="flex-1">
-                                    <div class="flex items-center gap-2 mb-1">
-                                        <span class="text-sm font-semibold text-slate-900">
-                                            <?php echo htmlspecialchars(ucfirst(str_replace('_', ' ', $log['action']))); ?>
-                                        </span>
-                                        <?php if ($log['ip_address']): ?>
-                                        <span class="text-xs text-slate-500 px-2 py-0.5 rounded-full bg-slate-100">
-                                            <i class='bx bx-globe text-xs'></i>
-                                            <?php echo htmlspecialchars($log['ip_address']); ?>
-                                        </span>
-                                        <?php endif; ?>
-                                    </div>
-                                    <?php if ($log['description']): ?>
-                                    <p class="text-sm text-slate-600 mb-2">
-                                        <?php echo htmlspecialchars($log['description']); ?>
-                                    </p>
-                                    <?php endif; ?>
-                                    <?php if ($log['user_agent']): ?>
-                                    <p class="text-xs text-slate-400 truncate"
-                                        title="<?php echo htmlspecialchars($log['user_agent']); ?>">
-                                        <i class='bx bx-devices text-xs'></i>
-                                        <?php echo htmlspecialchars(mb_substr($log['user_agent'], 0, 80)); ?>
-                                        <?php if (mb_strlen($log['user_agent']) > 80): ?>...<?php endif; ?>
-                                    </p>
-                                    <?php endif; ?>
+                                    <i class="bx <?php echo $icon; ?> text-xl"></i>
                                 </div>
-                                <div class="flex-shrink-0 text-right">
-                                    <div class="text-xs font-medium text-slate-700">
-                                        <?php echo date('M d, Y', strtotime($log['created_at'])); ?>
-                                    </div>
-                                    <div class="text-xs text-slate-500">
-                                        <?php echo date('H:i:s', strtotime($log['created_at'])); ?>
+
+                                <!-- Log Content -->
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between gap-4 mb-1">
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-semibold text-slate-900">
+                                                    <?php echo htmlspecialchars(ucfirst(str_replace('_', ' ', $log['action']))); ?>
+                                                </span>
+                                                <?php if ($log['ip_address']): ?>
+                                                    <span class="text-xs text-slate-500 px-2 py-0.5 rounded-full bg-slate-100">
+                                                        <i class='bx bx-globe text-xs'></i>
+                                                        <?php echo htmlspecialchars($log['ip_address']); ?>
+                                                    </span>
+                                                <?php endif; ?>
+                                            </div>
+                                            <?php if ($log['description']): ?>
+                                                <p class="text-sm text-slate-600 mb-2">
+                                                    <?php echo htmlspecialchars($log['description']); ?>
+                                                </p>
+                                            <?php endif; ?>
+                                            <?php if ($log['user_agent']): ?>
+                                                <p class="text-xs text-slate-400 truncate"
+                                                    title="<?php echo htmlspecialchars($log['user_agent']); ?>">
+                                                    <i class='bx bx-devices text-xs'></i>
+                                                    <?php echo htmlspecialchars(mb_substr($log['user_agent'], 0, 80)); ?>
+                                                    <?php if (mb_strlen($log['user_agent']) > 80): ?>...<?php endif; ?>
+                                                </p>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="flex-shrink-0 text-right">
+                                            <div class="text-xs font-medium text-slate-700">
+                                                <?php echo date('M d, Y', strtotime($log['created_at'])); ?>
+                                            </div>
+                                            <div class="text-xs text-slate-500">
+                                                <?php echo date('H:i:s', strtotime($log['created_at'])); ?>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
-                    <?php endforeach; ?>
-                </div>
                 <?php else: ?>
-                <div class="text-center py-12">
-                    <i class='bx bx-inbox text-6xl text-slate-300 mb-4 block'></i>
-                    <h3 class="text-lg font-semibold text-slate-700 mb-2">No Activity Logs</h3>
-                    <p class="text-sm text-slate-500">
-                        Belum ada aktivitas yang tercatat untuk akun ini.
-                    </p>
-                </div>
+                    <div class="text-center py-12">
+                        <i class='bx bx-inbox text-6xl text-slate-300 mb-4 block'></i>
+                        <h3 class="text-lg font-semibold text-slate-700 mb-2">No Activity Logs</h3>
+                        <p class="text-sm text-slate-500">
+                            Belum ada aktivitas yang tercatat untuk akun ini.
+                        </p>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>
