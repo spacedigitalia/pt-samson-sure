@@ -29,22 +29,22 @@ try {
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://surenusantara.com/consultants/">
+    <meta property="og:url" content="https://www.samsonsure.co.id/consultants/">
     <meta property="og:title" content="Our Expert Consultants - Surenusantara">
     <meta property="og:description"
         content="Meet our team of expert consultants dedicated to helping your business grow and succeed with professional guidance and solutions.">
-    <meta property="og:image" content="https://surenusantara.com/assets/consultants-og.jpg">
+    <meta property="og:image" content="https://www.samsonsure.co.id/assets/consultants-og.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://surenusantara.com/consultants/">
+    <meta property="twitter:url" content="https://www.samsonsure.co.id/consultants/">
     <meta property="twitter:title" content="Our Expert Consultants - Surenusantara">
     <meta property="twitter:description"
         content="Meet our team of expert consultants dedicated to helping your business grow and succeed with professional guidance and solutions.">
-    <meta property="twitter:image" content="https://surenusantara.com/assets/consultants-og.jpg">
+    <meta property="twitter:image" content="https://www.samsonsure.co.id/assets/consultants-og.jpg">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://surenusantara.com/consultants/" />
+    <link rel="canonical" href="https://www.samsonsure.co.id/consultants/" />
 
     <title>Our Expert Consultants - Surenusantara</title>
 

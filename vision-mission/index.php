@@ -20,22 +20,22 @@ $missions = $controller->getAll('mission');
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://surenusantara.com/vision-mission/">
+    <meta property="og:url" content="https://www.samsonsure.co.id/vision-mission/">
     <meta property="og:title" content="Vision & Mission - Surenusantara">
     <meta property="og:description"
         content="Learn about the Vision and Mission of Surenusantara. We strive to provide professional services with quality, safety, and timeliness.">
-    <meta property="og:image" content="https://surenusantara.com/assets/logo.jpg">
+    <meta property="og:image" content="https://www.samsonsure.co.id/assets/logo.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://surenusantara.com/vision-mission">
+    <meta property="twitter:url" content="https://www.samsonsure.co.id/vision-mission">
     <meta property="twitter:title" content="Vision & Mission - Surenusantara">
     <meta property="twitter:description"
         content="Learn about the Vision and Mission of Surenusantara. We strive to provide professional services with quality, safety, and timeliness.">
-    <meta property="twitter:image" content="https://surenusantara.com/assets/logo.jpg">
+    <meta property="twitter:image" content="https://www.samsonsure.co.id/assets/logo.jpg">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://surenusantara.com/vision-mission/" />
+    <link rel="canonical" href="https://www.samsonsure.co.id/vision-mission/" />
 
     <title>Vision & Mission - Surenusantara</title>
 

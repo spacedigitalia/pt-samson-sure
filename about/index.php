@@ -24,22 +24,22 @@ $dataPerseroan = $dataPerseroanController->getAll();
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://surenusantara.com/about/">
+    <meta property="og:url" content="https://www.samsonsure.co.id/about/">
     <meta property="og:title" content="About Us - Surenusantara">
     <meta property="og:description"
         content="Learn about the history and mission of Surenusantara. We are a trusted partner for comprehensive business solutions and services.">
-    <meta property="og:image" content="https://surenusantara.com/assets/logo.jpg">
+    <meta property="og:image" content="https://www.samsonsure.co.id/assets/logo.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://surenusantara.com/about">
+    <meta property="twitter:url" content="https://www.samsonsure.co.id/about">
     <meta property="twitter:title" content="About Us - Surenusantara">
     <meta property="twitter:description"
         content="Learn about the history and mission of Surenusantara. We are a trusted partner for comprehensive business solutions and services.">
-    <meta property="twitter:image" content="https://surenusantara.com/assets/logo.jpg">
+    <meta property="twitter:image" content="https://www.samsonsure.co.id/assets/logo.jpg">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://surenusantara.com/about/" />
+    <link rel="canonical" href="https://www.samsonsure.co.id/about/" />
 
     <title>About Us - Surenusantara</title>
 
@@ -55,11 +55,36 @@ $dataPerseroan = $dataPerseroanController->getAll();
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../style/globals.css">
 
-    <!-- AOS Animation CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Lightweight page animation (no AOS on this page to avoid scroll lag) -->
+    <style>
+        .about-fade-in {
+            opacity: 0;
+            transform: translateY(12px);
+            animation: aboutFadeIn 0.5s ease-out forwards;
+        }
 
-    <!-- Breadcrumb Structured Data -->
-    <script src="/js/breadchumb.js"></script>
+        .about-fade-in.delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .about-fade-in.delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .about-fade-in.delay-3 {
+            animation-delay: 0.15s;
+        }
+
+        @keyframes aboutFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <!-- Breadcrumb (defer to not block render) -->
+    <script src="/js/breadchumb.js" defer></script>
 </head>
 
 <body>
@@ -70,7 +95,7 @@ $dataPerseroan = $dataPerseroanController->getAll();
             <!-- Main About Content - Two Columns -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
                 <!-- Left Column - Text Content -->
-                <div class="space-y-6 order-1 md:order-2" data-aos="fade-up">
+                <div class="space-y-6 order-1 md:order-2 about-fade-in">
                     <h2 class="text-3xl font-bold text-slate-900 mb-6">ABOUT US</h2>
 
                     <?php
@@ -88,7 +113,7 @@ $dataPerseroan = $dataPerseroanController->getAll();
                     ?>
 
                     <!-- Learn More Button -->
-                    <div class="pt-4" data-aos="fade-up">
+                    <div class="pt-4 about-fade-in delay-1">
                         <a href="/vision-mission"
                             class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#505CEE] to-[#8A2BE2] text-white font-bold text-base shadow-lg hover:shadow-xl transition-all">
                             Learn More About Us
@@ -97,11 +122,11 @@ $dataPerseroan = $dataPerseroanController->getAll();
                 </div>
 
                 <!-- Right Column - Image -->
-                <div class="order-2 md:order-1" data-aos="fade-right">
+                <div class="order-2 md:order-1 about-fade-in delay-2">
                     <?php if ($aboutData['image']): ?>
                         <div class="rounded-3xl overflow-hidden shadow-2xl bg-slate-100 aspect-[4/3]">
-                            <img src="<?php echo htmlspecialchars($aboutData['image']); ?>" alt="About Us"
-                                class="w-full h-full object-cover"
+                            <img src="/<?php echo htmlspecialchars(ltrim($aboutData['image'], '/')); ?>" alt="About Us"
+                                class="w-full h-full object-cover" loading="eager" decoding="async" fetchpriority="high"
                                 onerror="this.src='https://via.placeholder.com/800x600?text=Image+Not+Found'">
                         </div>
                     <?php else: ?>
@@ -129,7 +154,7 @@ $dataPerseroan = $dataPerseroanController->getAll();
 
     <!-- Data Perseroan Section -->
     <section class="container min-h-full pb-4 px-4">
-        <div class="text-center mb-12" data-aos="fade-up">
+        <div class="text-center mb-12 about-fade-in">
             <h2 class="text-3xl md:text-4xl font-bold text-[#2C3A47] mb-4">DATA PERSEROAN</h2>
             <p class="text-lg text-[#64748B] max-w-2xl mx-auto leading-relaxed">
                 Informasi lengkap mengenai data perseroan perusahaan kami
@@ -139,15 +164,15 @@ $dataPerseroan = $dataPerseroanController->getAll();
         <?php if (!empty($dataPerseroan)): ?>
             <div class="space-y-8">
                 <?php foreach ($dataPerseroan as $index => $data): ?>
-                    <div class="bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden" data-aos="fade-up" data-aos-delay="<?php echo $index * 100; ?>">
+                    <div class="bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden about-fade-in delay-3">
                         <!-- Header Card -->
                         <div class="bg-gradient-to-r from-[#505CEE] to-[#8A2BE2] px-8 py-8 relative overflow-hidden">
                             <!-- Background Image -->
                             <?php if (!empty($data['image'])): ?>
                                 <div class="absolute inset-0 opacity-20">
-                                    <img src="<?php echo htmlspecialchars($data['image']); ?>"
+                                    <img src="/<?php echo htmlspecialchars(ltrim($data['image'], '/')); ?>"
                                         alt="Data Perseroan"
-                                        class="w-full h-full object-cover"
+                                        class="w-full h-full object-cover" loading="lazy" decoding="async"
                                         onerror="this.style.display='none'">
                                 </div>
                             <?php endif; ?>
@@ -159,9 +184,9 @@ $dataPerseroan = $dataPerseroanController->getAll();
                                     <?php if (!empty($data['image'])): ?>
                                         <div class="flex-shrink-0">
                                             <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden border-4 border-white/30 shadow-xl bg-white">
-                                                <img src="<?php echo htmlspecialchars($data['image']); ?>"
+                                                <img src="/<?php echo htmlspecialchars(ltrim($data['image'], '/')); ?>"
                                                     alt="Data Perseroan"
-                                                    class="w-full h-full object-cover"
+                                                    class="w-full h-full object-cover" loading="lazy" decoding="async"
                                                     onerror="this.src='https://via.placeholder.com/200?text=No+Image'">
                                             </div>
                                         </div>
@@ -188,8 +213,8 @@ $dataPerseroan = $dataPerseroanController->getAll();
                                             <div class="mt-4">
                                                 <button
                                                     onclick="openSKDocumentModal(<?php echo htmlspecialchars(json_encode([
-                                                                                        'skd' => $data['skd'] ?? null,
-                                                                                        'skb' => $data['skb'] ?? null
+                                                                                        'skd' => !empty($data['skd']) ? '/' . ltrim($data['skd'], '/') : null,
+                                                                                        'skb' => !empty($data['skb']) ? '/' . ltrim($data['skb'], '/') : null
                                                                                     ])); ?>)"
                                                     class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white text-sm font-semibold border border-white/30 transition-all">
                                                     <i class='bx bx-file-blank text-lg'></i>
@@ -254,8 +279,8 @@ $dataPerseroan = $dataPerseroanController->getAll();
                                         <?php if (!empty($data['imd']) || !empty($data['imb'])): ?>
                                             <button
                                                 onclick="openDocumentModal(<?php echo htmlspecialchars(json_encode([
-                                                                                'imd' => $data['imd'] ?? null,
-                                                                                'imb' => $data['imb'] ?? null
+                                                                                'imd' => !empty($data['imd']) ? '/' . ltrim($data['imd'], '/') : null,
+                                                                                'imb' => !empty($data['imb']) ? '/' . ltrim($data['imb'], '/') : null
                                                                             ])); ?>)"
                                                 class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#505CEE] to-[#8A2BE2] text-white text-sm font-semibold hover:shadow-lg transition-all">
                                                 <i class='bx bx-image text-lg'></i>

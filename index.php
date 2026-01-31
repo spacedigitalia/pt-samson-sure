@@ -38,21 +38,21 @@ $strukturOrganisasiData = $strukturOrganisasiController->getFirst();
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://surenusantara.com/">
+    <meta property="og:url" content="https://www.samsonsure.co.id/">
     <meta property="og:title" content="Surenusantara - Business Solutions">
     <meta property="og:description" content="Your trusted partner for comprehensive business solutions and services.">
-    <meta property="og:image" content="https://surenusantara.com/assets/logo.jpg">
+    <meta property="og:image" content="https://www.samsonsure.co.id/assets/logo.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://surenusantara.com/">
+    <meta property="twitter:url" content="https://www.samsonsure.co.id/">
     <meta property="twitter:title" content="Surenusantara - Business Solutions">
     <meta property="twitter:description"
         content="Your trusted partner for comprehensive business solutions and services.">
-    <meta property="twitter:image" content="https://surenusantara.com/assets/logo.jpg">
+    <meta property="twitter:image" content="https://www.samsonsure.co.id/assets/logo.jpg">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://surenusantara.com/" />
+    <link rel="canonical" href="https://www.samsonsure.co.id/" />
 
     <title>Surenusantara</title>
 
@@ -293,7 +293,7 @@ $strukturOrganisasiData = $strukturOrganisasiController->getFirst();
 
         <!-- Stuktur Organisasi -->
         <section class="relative py-8 md:py-12 lg:py-16">
-            <div class="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[80vh] flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat px-4"
+            <div class="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-screen flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat px-4"
                 style="background-image: url('../assets/bg.jpg'); background-attachment: fixed;">
                 <!-- Overlay Background -->
                 <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
@@ -328,6 +328,93 @@ $strukturOrganisasiData = $strukturOrganisasiController->getFirst();
                         </div>
                     </div>
                 <?php endif; ?>
+            </div>
+        </section>
+
+        <!-- Job-Description Key Responsibilities -->
+        <section class="container min-h-full py-12 px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-lg font-semibold text-[#8A2BE2] mb-4">Job-Description Key Responsibilities</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-[#2C3A47] leading-tight">
+                    Job-Description <span class="text-[#505CEE]">Key Responsibilities</span>
+                </h3>
+                <p class="text-lg text-[#64748B] mt-4 max-w-2xl mx-auto">
+                    Peran dan tanggung jawab utama dalam struktur perusahaan kami
+                </p>
+            </div>
+
+            <!-- Row 1: QA Manager & Operation Manager -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8" data-aos="fade-up">
+                <!-- QA Manager -->
+                <div class="rounded-2xl overflow-hidden shadow-lg bg-[#C45C26]/90 text-white p-6">
+                    <h4 class="text-xl font-bold text-white mb-3">Quality Assurance (QA) Manager</h4>
+                    <p class="text-sm text-white/95 mb-4">Memastikan kualitas produk/layanan, keamanan, performa, dan pencegahan defect melalui monitoring, testing, dan audit.</p>
+                    <p class="text-sm font-semibold mb-2">Key Responsibilities:</p>
+                    <ul class="text-sm space-y-1 list-disc list-inside text-white/95">
+                        <li>Testing & Inspection</li>
+                        <li>Defect Tracking</li>
+                        <li>Process Improvement</li>
+                        <li>Documentation</li>
+                        <li>Collaboration</li>
+                        <li>Compliance</li>
+                    </ul>
+                </div>
+                <!-- Operation Manager -->
+                <div class="rounded-2xl overflow-hidden shadow-lg bg-[#1E3A5F]/90 text-white p-6">
+                    <h4 class="text-xl font-bold text-white mb-3">Operation Manager</h4>
+                    <p class="text-sm text-white/95 mb-4">Mengawasi aktivitas bisnis harian, efisiensi, produktivitas, dan mendorong profitabilitas lintas departemen.</p>
+                    <p class="text-sm font-semibold mb-2">Key Responsibilities:</p>
+                    <ul class="text-sm space-y-1 list-disc list-inside text-white/95">
+                        <li>Strategy & Planning</li>
+                        <li>Process Management</li>
+                        <li>Resource & Budget</li>
+                        <li>Staff Management</li>
+                        <li>Quality & Compliance</li>
+                        <li>Performance Monitoring</li>
+                        <li>Interdepartmental Coordination</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Row 2: Business Manager -->
+            <div class="mb-8" data-aos="fade-up">
+                <div class="rounded-2xl overflow-hidden shadow-lg bg-[#E85D04]/95 text-white p-8">
+                    <h4 class="text-2xl font-bold mb-4">Business Manager</h4>
+                    <p class="text-white/95 mb-4">Mengawasi operasi harian, kinerja keuangan, dan perencanaan strategis untuk memastikan produktivitas dan pertumbuhan perusahaan. Tanggung jawab utama meliputi pengelolaan anggaran, memimpin staf, mengoptimalkan alur kerja, dan memastikan kepatuhan regulasi.</p>
+                    <p class="text-sm font-semibold mb-2">Key Responsibilities:</p>
+                    <ul class="text-sm space-y-2 list-disc list-inside text-white/95 mb-4">
+                        <li>Operational Management: Mengarahkan aktivitas bisnis harian, mengoptimalkan workflow, dan menjaga lingkungan kerja yang aman dan efisien.</li>
+                        <li>Financial Control: Mengawasi budgeting, forecasting pendapatan, mengelola pengeluaran, dan memantau profitabilitas.</li>
+                        <li>Strategic Planning: Mengembangkan dan mengimplementasikan strategi untuk mencapai tujuan perusahaan.</li>
+                        <li>Team Leadership: Merekrut, melatih, dan mengevaluasi staf, serta membangun lingkungan kerja positif.</li>
+                        <li>Performance Analysis: Menganalisis KPI, menyiapkan laporan, dan menggunakan data untuk pengambilan keputusan.</li>
+                        <li>Relationship Management: Mengelola hubungan dengan vendor, mitra, dan klien.</li>
+                    </ul>
+                    <p class="text-sm font-semibold mb-2">Common Performance Metrics:</p>
+                    <ul class="text-sm space-y-1 list-disc list-inside text-white/95">
+                        <li>Budget adherence</li>
+                        <li>Operational efficiency metrics</li>
+                        <li>Revenue growth</li>
+                        <li>Employee performance and retention</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Row 3: Finance Manager -->
+            <div data-aos="fade-up">
+                <div class="rounded-2xl overflow-hidden shadow-lg bg-[#1E3A5F]/95 text-white p-8">
+                    <h4 class="text-2xl font-bold mb-4">Finance Manager</h4>
+                    <p class="text-white/95 mb-4">Mengawasi kesehatan keuangan organisasi melalui pengelolaan operasi akuntansi, laporan keuangan, analisis, dan kepatuhan regulasi. Tanggung jawab utama meliputi pengembangan anggaran, pengelolaan arus kas, dan pemberian saran keuangan strategis kepada manajemen senior untuk memaksimalkan profitabilitas.</p>
+                    <p class="text-sm font-semibold mb-2">Key Responsibilities:</p>
+                    <ul class="text-sm space-y-2 list-disc list-inside text-white/95">
+                        <li>Financial Reporting and Analysis: Menyiapkan laporan keuangan bulanan, kuartalan, dan tahunan, serta menganalisis performa untuk memberikan insight kepada leadership.</li>
+                        <li>Budgeting and Forecasting: Mengembangkan, mengimplementasikan, dan mengelola anggaran tahunan serta forecast keuangan.</li>
+                        <li>Compliance and Risk Management: Memastikan kepatuhan terhadap regulasi keuangan, hukum, dan pajak, serta menjaga internal control.</li>
+                        <li>Cash Flow Management: Memantau dan mengelola arus kas harian, perbankan, dan investasi.</li>
+                        <li>Strategic Planning: Memberi saran kepada manajemen senior mengenai keputusan keuangan.</li>
+                        <li>Team Leadership: Memimpin, mengawasi, dan membimbing tim akuntansi dan keuangan.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 

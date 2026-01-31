@@ -19,22 +19,22 @@ $contacts = $controller->getAll();
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://surenusantara.com/contact/">
+    <meta property="og:url" content="https://www.samsonsure.co.id/contact/">
     <meta property="og:title" content="Contact Us - Surenusantara">
     <meta property="og:description"
         content="Get in touch with Surenusantara. We are here to help you with your business needs. Contact us today.">
-    <meta property="og:image" content="https://surenusantara.com/assets/logo.jpg">
+    <meta property="og:image" content="https://www.samsonsure.co.id/assets/logo.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://surenusantara.com/contact">
+    <meta property="twitter:url" content="https://www.samsonsure.co.id/contact">
     <meta property="twitter:title" content="Contact Us - Surenusantara">
     <meta property="twitter:description"
         content="Get in touch with Surenusantara. We are here to help you with your business needs. Contact us today.">
-    <meta property="twitter:image" content="https://surenusantara.com/assets/logo.jpg">
+    <meta property="twitter:image" content="https://www.samsonsure.co.id/assets/logo.jpg">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://surenusantara.com/contact/" />
+    <link rel="canonical" href="https://www.samsonsure.co.id/contact/" />
 
     <title>Contact Us - Surenusantara</title>
 

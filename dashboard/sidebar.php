@@ -144,7 +144,7 @@ function navClass(string $key, string $active): string
             </div>
         </div>
 
-        <form action="process.php" method="POST" class="mt-3">
+        <form action="/dashboard/process.php" method="POST" class="mt-3">
             <input type="hidden" name="action" value="logout">
             <button type="submit"
                 class="w-full rounded-xl bg-rose-600 px-3 py-2.5 text-sm font-semibold text-white hover:bg-rose-700">
