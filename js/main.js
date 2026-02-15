@@ -127,6 +127,32 @@ function closeSKDocumentModal() {
   document.body.style.overflow = "";
 }
 
+//======================= Interior Gallery Modal =======================//
+function openInteriorModal(imageSrc) {
+  const modal = document.getElementById("interiorModal");
+  const img = document.getElementById("interiorModalImage");
+  if (!modal || !img) return;
+
+  img.loading = "eager";
+  img.src = imageSrc;
+  img.alt = "Interior";
+
+  requestAnimationFrame(() => {
+    modal.style.display = "flex";
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  });
+}
+
+function closeInteriorModal() {
+  const modal = document.getElementById("interiorModal");
+  if (!modal) return;
+
+  modal.classList.add("hidden");
+  modal.style.display = "none";
+  document.body.style.overflow = "";
+}
+
 // Initialize all modal event listeners once
 (function initModals() {
   // Use IIFE to avoid waiting for DOMContentLoaded
@@ -155,16 +181,29 @@ function closeSKDocumentModal() {
     });
   }
 
+  // Initialize Interior gallery modal
+  const interiorModal = document.getElementById("interiorModal");
+  if (interiorModal) {
+    interiorModal.addEventListener("click", function (e) {
+      if (e.target === this) {
+        closeInteriorModal();
+      }
+    });
+  }
+
   // Single Escape key handler for all modals
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
       const docModal = document.getElementById("documentModal");
       const skModal = document.getElementById("skDocumentModal");
-      
+      const interiorModalEl = document.getElementById("interiorModal");
+
       if (docModal && !docModal.classList.contains("hidden")) {
         closeDocumentModal();
       } else if (skModal && !skModal.classList.contains("hidden")) {
         closeSKDocumentModal();
+      } else if (interiorModalEl && !interiorModalEl.classList.contains("hidden")) {
+        closeInteriorModal();
       }
     }
   });
@@ -175,6 +214,8 @@ window.openDocumentModal = openDocumentModal;
 window.closeDocumentModal = closeDocumentModal;
 window.openSKDocumentModal = openSKDocumentModal;
 window.closeSKDocumentModal = closeSKDocumentModal;
+window.openInteriorModal = openInteriorModal;
+window.closeInteriorModal = closeInteriorModal;
 
 //======================= Sidebar Toggle Mobile =======================//
 document.addEventListener("DOMContentLoaded", function () {

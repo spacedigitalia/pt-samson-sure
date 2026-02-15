@@ -5,6 +5,7 @@ require_once __DIR__ . '/controllers/ServicesController.php';
 require_once __DIR__ . '/controllers/CompanyManagementController.php';
 require_once __DIR__ . '/controllers/AboutController.php';
 require_once __DIR__ . '/controllers/StrukturOrganisasiController.php';
+require_once __DIR__ . '/controllers/InteriorController.php';
 
 $homeController = new HomeController($db);
 $homeData = $homeController->getFirst();
@@ -21,6 +22,9 @@ $managements = $companyManagementController->getAll();
 
 $strukturOrganisasiController = new StrukturOrganisasiController($db);
 $strukturOrganisasiData = $strukturOrganisasiController->getFirst();
+
+$interiorController = new InteriorController($db);
+$interiorList = $interiorController->getAll();
 
 ?>
 
@@ -294,7 +298,7 @@ $strukturOrganisasiData = $strukturOrganisasiController->getFirst();
         <!-- Stuktur Organisasi -->
         <section class="relative py-8 md:py-12 lg:py-16">
             <div class="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-screen flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat px-4"
-                style="background-image: url('../assets/bg.jpg'); background-attachment: fixed;">
+                style="background-image: url('../assets/contact.jpg'); background-attachment: fixed;">
                 <!-- Overlay Background -->
                 <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
 
@@ -331,6 +335,54 @@ $strukturOrganisasiData = $strukturOrganisasiController->getFirst();
             </div>
         </section>
 
+        <!-- Galeri Interior -->
+        <section class="container min-h-full py-12 px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h3 class="text-4xl md:text-5xl font-bold text-[#2C3A47] leading-tight">
+                    Galeri <span class="text-[#505CEE]">Interior</span>
+                </h3>
+                <p class="text-lg text-[#64748B] mt-4 max-w-2xl mx-auto">
+                    Galeri gambar interior perusahaan
+                </p>
+            </div>
+
+            <?php if (!empty($interiorList)): ?>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
+                    <?php foreach ($interiorList as $index => $item): ?>
+                        <?php $imgUrl = '/' . htmlspecialchars($item['image']); ?>
+                        <div class="rounded-2xl overflow-hidden shadow-lg group cursor-pointer" data-aos="fade-up" data-aos-delay="<?php echo min($index * 50, 200); ?>"
+                            onclick="openInteriorModal('<?php echo htmlspecialchars($imgUrl, ENT_QUOTES); ?>')"
+                            role="button"
+                            tabindex="0"
+                            onkeydown="if(event.key==='Enter') openInteriorModal('<?php echo htmlspecialchars($imgUrl, ENT_QUOTES); ?>')">
+                            <div class="block aspect-video bg-slate-100">
+                                <img src="<?php echo $imgUrl; ?>"
+                                    alt="Interior"
+                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                    onerror="this.src='https://via.placeholder.com/800x450?text=Image+Not+Found'">
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+                <div class="text-center py-12 rounded-2xl bg-slate-50 border border-slate-200" data-aos="fade-up">
+                    <i class='bx bx-building-house text-5xl text-slate-300 mb-4 block'></i>
+                    <p class="text-slate-500">Galeri interior belum tersedia.</p>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!empty($interiorList)): ?>
+            <div id="interiorModal" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/70 backdrop-blur-sm p-4" style="display: none;">
+                <button type="button" onclick="closeInteriorModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 text-slate-700 flex items-center justify-center hover:bg-white transition-colors" aria-label="Tutup">
+                    <i class='bx bx-x text-2xl'></i>
+                </button>
+                <div class="relative max-w-5xl max-h-[90vh] w-full flex items-center justify-center">
+                    <img id="interiorModalImage" src="" alt="Interior" class="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-lg shadow-2xl">
+                </div>
+            </div>
+            <?php endif; ?>
+        </section>
+
         <!-- Job-Description Key Responsibilities -->
         <section class="container min-h-full py-12 px-4">
             <div class="text-center mb-12" data-aos="fade-up">
@@ -359,6 +411,12 @@ $strukturOrganisasiData = $strukturOrganisasiController->getFirst();
                 </div>
                 <div class="rounded-2xl overflow-hidden shadow-lg">
                     <img src="assets/4.jpeg" alt="Job Description - Finance Manager" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600?text=Image+Not+Found'">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 mt-6" data-aos="fade-up">
+                <div class="rounded-2xl overflow-hidden">
+                    <img src="assets/5.jpg" alt="Job Description - Business Manager" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600?text=Image+Not+Found'">
                 </div>
             </div>
         </section>

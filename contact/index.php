@@ -64,7 +64,7 @@ $contacts = $controller->getAll();
         <div class="overflow-hidden flex flex-col lg:flex-row">
             <!-- Image Side -->
             <div class="w-full rounded-3xl overflow-hidden lg:w-1/2 aspect-square relative" data-aos="zoom-out">
-                <img src="/assets/bg.jpg" alt="The Plaza Office Tower"
+                <img src="/assets/contact.jpg" alt="The Plaza Office Tower"
                     class="absolute inset-0 w-full h-full object-cover">
                 <div
                     class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black/10">
