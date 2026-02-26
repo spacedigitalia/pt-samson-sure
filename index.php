@@ -44,7 +44,7 @@ $interiorList = $interiorController->getAll();
     <meta property="og:url" content="https://www.surenusantara.com">
     <meta property="og:title" content="Surenusantara - Business Solutions">
     <meta property="og:description" content="Your trusted partner for comprehensive business solutions and services.">
-    <meta property="og:image" content="https://www.surenusantara.com/assets/logo.jpg">
+    <meta property="og:image" content="https://www.surenusantara.com/public/home.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -52,10 +52,14 @@ $interiorList = $interiorController->getAll();
     <meta property="twitter:title" content="Surenusantara - Business Solutions">
     <meta property="twitter:description"
         content="Your trusted partner for comprehensive business solutions and services.">
-    <meta property="twitter:image" content="https://www.surenusantara.com/assets/logo.jpg">
+    <meta property="twitter:image" content="https://www.surenusantara.com/public/home.png">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.surenusantara.com" />
+
+    <!-- Robots & Sitemap -->
+    <link rel="robots" href="https://www.surenusantara.com/robots.txt" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.surenusantara.com/sitemap.xml" />
 
     <title>Surenusantara</title>
 
