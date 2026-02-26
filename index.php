@@ -35,23 +35,23 @@ $interiorList = $interiorController->getAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Surenusantara - Your trusted partner for comprehensive business solutions and services.">
-    <meta name="keywords" content="Surenusantara, business solutions, consulting, professional services">
-    <meta name="author" content="Surenusantara">
+        content="PT. SAMSON SURVEY UJI RISET EVALUASI - Your trusted partner for comprehensive business solutions and services.">
+    <meta name="keywords" content="PT. SAMSON SURVEY UJI RISET EVALUASI, business solutions, consulting, professional services">
+    <meta name="author" content="PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta name="robots" content="index, follow">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.surenusantara.com">
-    <meta property="og:title" content="Surenusantara - Business Solutions">
-    <meta property="og:description" content="Your trusted partner for comprehensive business solutions and services.">
+    <meta property="og:title" content="PT. SAMSON SURVEY UJI RISET EVALUASI - Business Solutions">
+    <meta property="og:description" content="PT. SAMSON SURVEY UJI RISET EVALUASI - Your trusted partner for comprehensive business solutions and services.">
     <meta property="og:image" content="https://www.surenusantara.com/home.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.surenusantara.com">
-    <meta property="twitter:title" content="Surenusantara - Business Solutions">
+    <meta property="twitter:title" content="PT. SAMSON SURVEY UJI RISET EVALUASI - Business Solutions">
     <meta property="twitter:description"
-        content="Your trusted partner for comprehensive business solutions and services.">
+        content="PT. SAMSON SURVEY UJI RISET EVALUASI - Your trusted partner for comprehensive business solutions and services.">
     <meta property="twitter:image" content="https://www.surenusantara.com/home.png">
 
     <!-- Canonical URL -->

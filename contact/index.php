@@ -12,31 +12,31 @@ $contacts = $controller->getAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Get in touch with Surenusantara. We are here to help you with your business needs. Contact us today.">
-    <meta name="keywords" content="contact, surenusantara, business, services, help, support">
-    <meta name="author" content="Surenusantara">
+        content="Get in touch with PT. SAMSON SURVEY UJI RISET EVALUASI. We are here to help you with your business needs. Contact us today.">
+    <meta name="keywords" content="contact, PT. SAMSON SURVEY UJI RISET EVALUASI, business, services, help, support">
+    <meta name="author" content="PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.surenusantara.com/contact">
-    <meta property="og:title" content="Contact Us - Surenusantara">
+    <meta property="og:title" content="Contact Us - PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta property="og:description"
-        content="Get in touch with Surenusantara. We are here to help you with your business needs. Contact us today.">
-    <meta property="og:image" content="https://www.surenusantara.com/assets/logo.jpg">
+        content="Get in touch with PT. SAMSON SURVEY UJI RISET EVALUASI. We are here to help you with your business needs. Contact us today.">
+    <meta property="og:image" content="https://www.surenusantara.com/assets/contact.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.surenusantara.com/contact">
-    <meta property="twitter:title" content="Contact Us - Surenusantara">
+    <meta property="twitter:title" content="Contact Us - PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta property="twitter:description"
-        content="Get in touch with Surenusantara. We are here to help you with your business needs. Contact us today.">
-    <meta property="twitter:image" content="https://www.surenusantara.com/assets/logo.jpg">
+        content="Get in touch with PT. SAMSON SURVEY UJI RISET EVALUASI. We are here to help you with your business needs. Contact us today.">
+    <meta property="twitter:image" content="https://www.surenusantara.com/assets/contact.jpg">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.surenusantara.com/contact" />
 
-    <title>Contact Us - Surenusantara</title>
+    <title>Contact Us - PT. SAMSON SURVEY UJI RISET EVALUASI</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>

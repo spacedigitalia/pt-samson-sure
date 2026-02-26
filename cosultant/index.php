@@ -24,29 +24,29 @@ try {
         content="Meet our team of expert consultants dedicated to helping your business grow and succeed with professional guidance and solutions.">
     <meta name="keywords"
         content="business consultants, professional consultants, business advisors, strategic consulting, management consultants">
-    <meta name="author" content="Surenusantara">
+    <meta name="author" content="PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.surenusantara.com/consultants">
-    <meta property="og:title" content="Our Expert Consultants - Surenusantara">
+    <meta property="og:url" content="https://www.surenusantara.com/cosultant">
+    <meta property="og:title" content="Our Expert Consultants - PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta property="og:description"
         content="Meet our team of expert consultants dedicated to helping your business grow and succeed with professional guidance and solutions.">
-    <meta property="og:image" content="https://www.surenusantara.com/assets/consultants-og.jpg">
+    <meta property="og:image" content="https://www.surenusantara.com/assets/cosultant.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.surenusantara.com/consultants">
-    <meta property="twitter:title" content="Our Expert Consultants - Surenusantara">
+    <meta property="twitter:url" content="https://www.surenusantara.com/cosultant">
+    <meta property="twitter:title" content="Our Expert Consultants - PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta property="twitter:description"
         content="Meet our team of expert consultants dedicated to helping your business grow and succeed with professional guidance and solutions.">
-    <meta property="twitter:image" content="https://www.surenusantara.com/assets/consultants-og.jpg">
+    <meta property="twitter:image" content="https://www.surenusantara.com/assets/cosultant.png">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.surenusantara.com/consultants" />
+    <link rel="canonical" href="https://www.surenusantara.com/cosultant" />
 
-    <title>Our Expert Consultants - Surenusantara</title>
+    <title>Our Expert Consultants - PT. SAMSON SURVEY UJI RISET EVALUASI</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>

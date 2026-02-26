@@ -13,31 +13,31 @@ $missions = $controller->getAll('mission');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Learn about the Vision and Mission of Surenusantara. We strive to provide professional services with quality, safety, and timeliness.">
-    <meta name="keywords" content="vision, mission, company values, surenusantara, goals, objectives">
-    <meta name="author" content="Surenusantara">
+        content="Learn about the Vision and Mission of PT. SAMSON SURVEY UJI RISET EVALUASI. We strive to provide professional services with quality, safety, and timeliness.">
+    <meta name="keywords" content="vision, mission, company values, PT. SAMSON SURVEY UJI RISET EVALUASI, goals, objectives">
+    <meta name="author" content="PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.surenusantara.com/vision-mission">
-    <meta property="og:title" content="Vision & Mission - Surenusantara">
+    <meta property="og:title" content="Vision & Mission - PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta property="og:description"
-        content="Learn about the Vision and Mission of Surenusantara. We strive to provide professional services with quality, safety, and timeliness.">
-    <meta property="og:image" content="https://www.surenusantara.com/assets/logo.jpg">
+        content="Learn about the Vision and Mission of PT. SAMSON SURVEY UJI RISET EVALUASI. We strive to provide professional services with quality, safety, and timeliness.">
+    <meta property="og:image" content="https://www.surenusantara.com/assets/vision-mission.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.surenusantara.com/vision-mission">
-    <meta property="twitter:title" content="Vision & Mission - Surenusantara">
+    <meta property="twitter:title" content="Vision & Mission - PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta property="twitter:description"
-        content="Learn about the Vision and Mission of Surenusantara. We strive to provide professional services with quality, safety, and timeliness.">
-    <meta property="twitter:image" content="https://www.surenusantara.com/assets/logo.jpg">
+        content="Learn about the Vision and Mission of PT. SAMSON SURVEY UJI RISET EVALUASI. We strive to provide professional services with quality, safety, and timeliness.">
+    <meta property="twitter:image" content="https://www.surenusantara.com/assets/vision-mission.png">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.surenusantara.com/vision-mission" />
 
-    <title>Vision & Mission - Surenusantara</title>
+    <title>Vision & Mission - PT. SAMSON SURVEY UJI RISET EVALUASI</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>

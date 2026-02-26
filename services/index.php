@@ -14,29 +14,29 @@ $services = $servicesController->getAll();
     <meta name="description"
         content="Explore our comprehensive range of business services designed to help your company grow and succeed in today's competitive market.">
     <meta name="keywords" content="business services, professional services, consulting, solutions, business growth">
-    <meta name="author" content="Surenusantara">
+    <meta name="author" content="PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.surenusantara.com/services">
-    <meta property="og:title" content="Our Services - Surenusantara">
+    <meta property="og:title" content="Our Services - PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta property="og:description"
         content="Explore our comprehensive range of business services designed to help your company grow and succeed in today's competitive market.">
-    <meta property="og:image" content="https://www.surenusantara.com/assets/logo.jpg">
+    <meta property="og:image" content="https://www.surenusantara.com/assets/services.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.surenusantara.com/services">
-    <meta property="twitter:title" content="Our Services - Surenusantara">
+    <meta property="twitter:title" content="Our Services - PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta property="twitter:description"
         content="Explore our comprehensive range of business services designed to help your company grow and succeed in today's competitive market.">
-    <meta property="twitter:image" content="https://www.surenusantara.com/assets/logo.jpg">
+    <meta property="twitter:image" content="https://www.surenusantara.com/assets/services.png">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.surenusantara.com/services" />
 
-    <title>Our Services - Surenusantara</title>
+    <title>Our Services - PT. SAMSON SURVEY UJI RISET EVALUASI</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>

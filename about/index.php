@@ -17,31 +17,31 @@ $dataPerseroan = $dataPerseroanController->getAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Learn about the history and mission of Surenusantara. We are a trusted partner for comprehensive business solutions and services.">
-    <meta name="keywords" content="about, surenusantara, business, services, help, support">
-    <meta name="author" content="Surenusantara">
+        content="Learn about the history and mission of PT. SAMSON SURVEY UJI RISET EVALUASI. We are a trusted partner for comprehensive business solutions and services.">
+    <meta name="keywords" content="about, PT. SAMSON SURVEY UJI RISET EVALUASI, business, services, help, support">
+    <meta name="author" content="PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.surenusantara.com/about">
-    <meta property="og:title" content="About Us - Surenusantara">
+    <meta property="og:title" content="About Us - PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta property="og:description"
-        content="Learn about the history and mission of Surenusantara. We are a trusted partner for comprehensive business solutions and services.">
-    <meta property="og:image" content="https://www.surenusantara.com/assets/logo.jpg">
+        content="Learn about the history and mission of PT. SAMSON SURVEY UJI RISET EVALUASI. We are a trusted partner for comprehensive business solutions and services.">
+    <meta property="og:image" content="https://www.surenusantara.com/assets/about.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.surenusantara.com/about">
-    <meta property="twitter:title" content="About Us - Surenusantara">
+    <meta property="twitter:title" content="About Us - PT. SAMSON SURVEY UJI RISET EVALUASI">
     <meta property="twitter:description"
-        content="Learn about the history and mission of Surenusantara. We are a trusted partner for comprehensive business solutions and services.">
-    <meta property="twitter:image" content="https://www.surenusantara.com/assets/logo.jpg">
+        content="Learn about the history and mission of PT. SAMSON SURVEY UJI RISET EVALUASI. We are a trusted partner for comprehensive business solutions and services.">
+    <meta property="twitter:image" content="https://www.surenusantara.com/assets/about.png">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.surenusantara.com/about" />
 
-    <title>About Us - Surenusantara</title>
+    <title>About Us - PT. SAMSON SURVEY UJI RISET EVALUASI</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
