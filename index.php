@@ -40,7 +40,6 @@ $interiorList = $interiorController->getAll();
     <meta name="author" content="Surenusantara">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.surenusantara.com">
     <meta property="og:title" content="Surenusantara - Business Solutions">
