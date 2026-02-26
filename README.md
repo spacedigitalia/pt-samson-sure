@@ -54,7 +54,8 @@ Database terdiri dari tabel utama berikut (lihat `pt-samson-sure.sql`):
 9. **login_attempts**
    - Mencatat percobaan login per IP
 10. **logs**
-   - Logging aksi sistem dan metadata user agent
+
+- Logging aksi sistem dan metadata user agent
 
 ## Teknologi yang Digunakan
 

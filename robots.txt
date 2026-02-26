@@ -1,0 +1,22 @@
+User-agent: *
+
+# Allow main public pages
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /vision-mission
+Allow: /consultants
+Allow: /contact
+
+# Block admin and backend areas
+Disallow: /dashboard/
+Disallow: /config/
+Disallow: /controllers/
+
+# Block authentication endpoints from indexing
+Disallow: /login.php
+Disallow: /logout.php
+Disallow: /process.php
+
+# Sitemap location
+Sitemap: https://www.surenusantara.com/sitemap.xml
