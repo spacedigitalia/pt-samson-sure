@@ -162,24 +162,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="space-y-2">
                         <label class="block text-sm font-medium text-slate-700">Password Saat Ini</label>
                         <div class="relative">
-                            <input type="password" name="current_password"
-                                class="block w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                placeholder="Masukkan password saat ini" required />
-                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-                                <i class='bx bx-lock text-slate-400'></i>
-                            </div>
+                            <input type="password" name="current_password" id="current_password"
+                                class="block w-full rounded-xl border border-slate-300 px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                placeholder="Masukkan password saat ini" required autocomplete="current-password" />
+                            <button type="button" class="password-toggle absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 focus:outline-none focus:text-blue-600"
+                                aria-label="Tampilkan password saat ini" data-label-show="Tampilkan password saat ini" data-label-hide="Sembunyikan password saat ini">
+                                <i class='bx bx-show text-xl icon-show' aria-hidden="true"></i>
+                                <i class='bx bx-hide text-xl icon-hide hidden' aria-hidden="true"></i>
+                            </button>
                         </div>
                     </div>
 
                     <div class="space-y-2">
                         <label class="block text-sm font-medium text-slate-700">Password Baru</label>
                         <div class="relative">
-                            <input type="password" name="new_password"
-                                class="block w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                placeholder="Masukkan password baru" required />
-                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-                                <i class='bx bx-key text-slate-400'></i>
-                            </div>
+                            <input type="password" name="new_password" id="new_password"
+                                class="block w-full rounded-xl border border-slate-300 px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                placeholder="Masukkan password baru" required autocomplete="new-password" />
+                            <button type="button" class="password-toggle absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 focus:outline-none focus:text-blue-600"
+                                aria-label="Tampilkan password baru" data-label-show="Tampilkan password baru" data-label-hide="Sembunyikan password baru">
+                                <i class='bx bx-show text-xl icon-show' aria-hidden="true"></i>
+                                <i class='bx bx-hide text-xl icon-hide hidden' aria-hidden="true"></i>
+                            </button>
                         </div>
                         <p class="text-xs text-slate-500 mt-1">Minimal 8 karakter, kombinasi huruf dan angka</p>
                     </div>
@@ -187,12 +191,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="space-y-2">
                         <label class="block text-sm font-medium text-slate-700">Konfirmasi Password Baru</label>
                         <div class="relative">
-                            <input type="password" name="confirm_password"
-                                class="block w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                placeholder="Konfirmasi password baru" required />
-                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-                                <i class='bx bx-key text-slate-400'></i>
-                            </div>
+                            <input type="password" name="confirm_password" id="confirm_password"
+                                class="block w-full rounded-xl border border-slate-300 px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                placeholder="Konfirmasi password baru" required autocomplete="new-password" />
+                            <button type="button" class="password-toggle absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 focus:outline-none focus:text-blue-600"
+                                aria-label="Tampilkan konfirmasi password" data-label-show="Tampilkan konfirmasi password" data-label-hide="Sembunyikan konfirmasi password">
+                                <i class='bx bx-show text-xl icon-show' aria-hidden="true"></i>
+                                <i class='bx bx-hide text-xl icon-hide hidden' aria-hidden="true"></i>
+                            </button>
                         </div>
                     </div>
 
@@ -226,12 +232,8 @@ toastr.options = {
 
 // Show success message if exists
 <?php if (isset($_SESSION['success'])): ?>
-    <
-    script >
-    // Tampilkan pesan sukses sekali saja
-    alert('<?php echo addslashes($_SESSION['success']); ?>');
+toastr.success('<?php echo addslashes($_SESSION['success']); ?>');
 <?php unset($_SESSION['success']); ?>
-</script>
 <?php endif; ?>
 
 // Show error message if exists
@@ -239,6 +241,31 @@ toastr.options = {
 toastr.error('<?php echo addslashes($_SESSION['error']); ?>');
 <?php unset($_SESSION['error']); ?>
 <?php endif; ?>
+</script>
+
+<script>
+document.querySelectorAll('.password-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        var wrap = btn.closest('.relative');
+        var input = wrap ? wrap.querySelector('input') : null;
+        if (!input || !input.name) return;
+        var showIcon = btn.querySelector('.icon-show');
+        var hideIcon = btn.querySelector('.icon-hide');
+        var labelShow = btn.getAttribute('data-label-show') || 'Tampilkan password';
+        var labelHide = btn.getAttribute('data-label-hide') || 'Sembunyikan password';
+        if (input.type === 'password') {
+            input.type = 'text';
+            if (showIcon) showIcon.classList.add('hidden');
+            if (hideIcon) hideIcon.classList.remove('hidden');
+            btn.setAttribute('aria-label', labelHide);
+        } else {
+            input.type = 'password';
+            if (showIcon) showIcon.classList.remove('hidden');
+            if (hideIcon) hideIcon.classList.add('hidden');
+            btn.setAttribute('aria-label', labelShow);
+        }
+    });
+});
 </script>
 
 <!-- Sidebar Toggle -->

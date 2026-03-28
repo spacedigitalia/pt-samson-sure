@@ -217,7 +217,7 @@ if (!$userData) {
                                 <i class='bx bx-home text-xl text-slate-600'></i>
                                 <span class="text-sm font-semibold text-slate-700">Go to Dashboard</span>
                             </a>
-                            <a href="change-password.php"
+                            <a href="../change-password.php"
                                 class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-colors">
                                 <i class='bx bx-lock-alt text-xl text-slate-600'></i>
                                 <span class="text-sm font-semibold text-slate-700">Change Password</span>
