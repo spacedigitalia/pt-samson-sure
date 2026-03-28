@@ -401,6 +401,60 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+//======================= Mobile bottom contact bar — show after scroll; desktop rail scroll-to-top =======================//
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileScrollTop = document.getElementById("mobile-contact-bar-scroll-top");
+  const desktopScrollTop = document.getElementById("desktop-contact-rail-scroll-top");
+
+  function bindScrollToTop(btn) {
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+  bindScrollToTop(mobileScrollTop);
+  bindScrollToTop(desktopScrollTop);
+
+  const bar = document.getElementById("mobile-contact-bar");
+  if (!bar) return;
+
+  const revealAfterPx = 50;
+  let lastShown = null;
+
+  function setBarVisible(show) {
+    if (lastShown === show) return;
+    lastShown = show;
+
+    bar.classList.toggle("translate-y-0", show);
+    bar.classList.toggle("opacity-100", show);
+    bar.classList.toggle("pointer-events-auto", show);
+    bar.classList.toggle("translate-y-full", !show);
+    bar.classList.toggle("opacity-0", !show);
+    bar.classList.toggle("pointer-events-none", !show);
+    bar.setAttribute("aria-hidden", show ? "false" : "true");
+  }
+
+  let ticking = false;
+  function onScroll() {
+    const y = window.pageYOffset || document.documentElement.scrollTop;
+    setBarVisible(y > revealAfterPx);
+    ticking = false;
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!ticking) {
+        window.requestAnimationFrame(onScroll);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
+  onScroll();
+});
+
 //======================= Service Card Toggle =======================//
 function toggleServiceCard(id) {
   const desc = document.getElementById("service-desc-" + id);

@@ -14,6 +14,10 @@ function isActive($path, $currentPath)
     }
     return false;
 }
+
+$contactPhoneTel = '+62816738272';
+$contactWhatsAppDigits = '62816738272';
+$contactEmail = 'Malik@surenusantara.com ';
 ?>
 
 <div class="text-xs sm:text-sm px-4">
@@ -133,3 +137,78 @@ function isActive($path, $currentPath)
 <!-- Mobile Menu Backdrop -->
 <div id="mobile-menu-backdrop"
     class="fixed inset-0 bg-black/50 z-[1000] hidden opacity-0 transition-opacity duration-300 lg:hidden"></div>
+
+<!-- Mobile bottom contact bar: hidden at top of page; slide + fade in after scroll (see main.js) -->
+<nav id="mobile-contact-bar"
+    class="sm:hidden fixed bottom-0 left-0 right-0 z-[998] bg-white shadow-[0_-4px_14px_rgba(0,0,0,0.08)] border-t border-[#eee] pb-[env(safe-area-inset-bottom)] translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
+    aria-label="Kontak cepat"
+    aria-hidden="true">
+    <div class="flex items-center justify-between gap-2 px-2 py-2 max-w-lg mx-auto min-h-[3.25rem]">
+        <a href="https://wa.me/<?php echo htmlspecialchars($contactWhatsAppDigits); ?>"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex flex-1 flex-col items-center gap-0.5 min-w-0 py-1 text-[#333] no-underline hover:text-[#505CEE] active:opacity-80">
+            <i class="bx bxl-whatsapp text-lg leading-none"></i>
+            <span class="text-[10px] leading-tight font-medium">Whatsapp</span>
+        </a>
+        <a href="tel:<?php echo htmlspecialchars($contactPhoneTel); ?>"
+            class="flex flex-1 flex-col items-center gap-0.5 min-w-0 py-1 text-[#333] no-underline hover:text-[#505CEE] active:opacity-80">
+            <i class="bx bx-mobile text-lg leading-none"></i>
+            <span class="text-[10px] leading-tight font-medium">Telepon</span>
+        </a>
+        <button type="button"
+            id="mobile-contact-bar-scroll-top"
+            class="flex flex-col items-center justify-center shrink-0 mx-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#505CEE] focus-visible:ring-offset-2 rounded-xl"
+            aria-label="Gulir ke atas">
+            <span
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-[#505CEE] text-white shadow-md hover:bg-[#3d47c4] active:scale-95 transition-transform">
+                <i class="bx bx-chevron-up text-lg leading-none"></i>
+            </span>
+        </button>
+        <a href="mailto:<?php echo htmlspecialchars($contactEmail); ?>"
+            class="flex flex-1 flex-col items-center gap-0.5 min-w-0 py-1 text-[#333] no-underline hover:text-[#505CEE] active:opacity-80">
+            <i class="bx bx-envelope text-lg leading-none"></i>
+            <span class="text-[10px] leading-tight font-medium">Email</span>
+        </a>
+        <a href="/contact"
+            class="flex flex-1 flex-col items-center gap-0.5 min-w-0 py-1 text-[#333] no-underline hover:text-[#505CEE] active:opacity-80">
+            <i class="bx bx-message-dots text-lg leading-none"></i>
+            <span class="text-[10px] leading-tight font-medium">Permintaan</span>
+        </a>
+    </div>
+</nav>
+
+<!-- sm+ (640px): kotak kontak & tombol atas terpisah (dots/permintaan tidak digabung dengan chevron) -->
+<aside
+    class="hidden sm:flex flex-col fixed right-4 top-1/2 -translate-y-1/2 z-[998] w-[4.25rem] gap-2 transition-all duration-300 ease-in-out"
+    aria-label="Kontak cepat">
+    <div
+        class="flex flex-col rounded-xl border border-[#e5e5e5] bg-white shadow-md overflow-hidden">
+        <a href="https://wa.me/<?php echo htmlspecialchars($contactWhatsAppDigits); ?>"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex flex-col items-center justify-center gap-1.5 py-3 px-1.5 text-center text-[#333] no-underline border-b border-[#eee] hover:bg-slate-50 transition-colors">
+            <i class="bx bxl-whatsapp text-lg leading-none text-[#25D366]"></i>
+            <span class="text-[11px] font-medium leading-tight">Whatsapp</span>
+        </a>
+        <a href="tel:<?php echo htmlspecialchars($contactPhoneTel); ?>"
+            target="_blank"
+            class="flex flex-col items-center justify-center gap-1.5 py-3 px-1.5 text-center text-[#333] no-underline border-b border-[#eee] hover:bg-slate-50 transition-colors">
+            <i class="bx bx-mobile text-lg leading-none text-[#333]"></i>
+            <span class="text-[11px] font-medium leading-tight">Telepon</span>
+        </a>
+        <a href="mailto:<?php echo htmlspecialchars($contactEmail); ?>"
+            target="_blank"
+            class="flex flex-col items-center justify-center gap-1.5 py-3 px-1.5 text-center text-[#333] no-underline border-b border-[#eee] hover:bg-slate-50 transition-colors">
+            <i class="bx bx-envelope text-lg leading-none text-orange-500"></i>
+            <span class="text-[11px] font-medium leading-tight">Email</span>
+        </a>
+    </div>
+    <button type="button"
+        id="desktop-contact-rail-scroll-top"
+        class="flex flex-col items-center justify-center gap-0.5 py-2.5 px-1.5 w-full rounded-xl border border-[#3d47c4] bg-[#505CEE] text-white shadow-md hover:bg-[#3d47c4] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#505CEE] focus-visible:ring-offset-2"
+        aria-label="Gulir ke atas">
+        <i class="bx bx-chevron-up text-base leading-none"></i>
+        <span class="text-[10px] font-medium leading-tight">Atas</span>
+    </button>
+</aside>

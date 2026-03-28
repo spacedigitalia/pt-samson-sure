@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: dashboard.php');
+    header('Location: /dashboard');
     exit;
 }
 
@@ -29,6 +29,6 @@ switch ($action) {
 
     default:
         $_SESSION['error'] = 'Aksi dashboard tidak dikenal.';
-        header('Location: dashboard.php');
+        header('Location: /dashboard');
         exit;
 }

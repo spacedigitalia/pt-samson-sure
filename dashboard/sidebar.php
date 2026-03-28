@@ -124,6 +124,13 @@ function navClass(string $key, string $active): string
             Profile
         </a>
 
+        <a href="/dashboard/managements-admin" class="<?php echo navClass('managements-admin', $active); ?>">
+            <span
+                class="inline-flex h-8 w-8 items-center justify-center rounded-lg <?php echo $active === 'managements-admin' ? 'bg-white/15' : 'bg-slate-100 text-slate-700'; ?>"><i
+                    class='bx bx-user-circle'></i> </span>
+            Management Admins
+        </a>
+
         <a href="/dashboard/logs" class="<?php echo navClass('logs', $active); ?>">
             <span
                 class="inline-flex h-8 w-8 items-center justify-center rounded-lg <?php echo $active === 'logs' ? 'bg-white/15' : 'bg-slate-100 text-slate-700'; ?>"><i
